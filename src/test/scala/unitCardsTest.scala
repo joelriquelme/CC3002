@@ -75,9 +75,9 @@ class unitCardsTest extends FunSuite {
 
     cartaSRM.play() // play a card type siege with Refuerzo moral
     assertEquals(cartaSRM.strength, 5) // strength of the lasted played card dont change
-    assertEquals(cartaS.strength, 6) // strength of the melee card change
+    assertEquals(cartaS.strength, 6) // strength of the siege card change
     assertEquals(cartaR.strength, 6) // strength of the range card dont change
-    assertEquals(cartaM.strength, 6) // strength of the siege card dont change
+    assertEquals(cartaM.strength, 6) // strength of the melee card dont change
   }
   test("ability Vinculo Estrecho works"){
     cartaR.play() // play a card type range with name "TestCard"
