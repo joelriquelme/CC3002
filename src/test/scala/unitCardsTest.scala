@@ -1,6 +1,5 @@
 package cl.uchile.dcc
 
-
 import cl.uchile.dcc.gwent.cards
 
 class unitCardsTest extends FunSuite {

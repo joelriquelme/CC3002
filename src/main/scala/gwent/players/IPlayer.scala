@@ -1,5 +1,5 @@
 package cl.uchile.dcc
-package gwent.jugador
+package gwent.players
 
 trait IPlayer {
   val name : String
