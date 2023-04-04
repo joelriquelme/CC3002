@@ -1,9 +1,5 @@
-package cl.uchile.dcc
-package gwent.cards
+package cl.uchile.dcc.gwent.cards
 
-class UnitCard (private val name : String,
-                private val cardType : String,
-                private val cardSubType : String)
-                private val strength : Int) extends Cards {
+class UnitCard {
 
 }
