@@ -27,6 +27,7 @@
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
+.idea/libraries/**
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
@@ -167,4 +168,48 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# bloop and metals
+.bloop
+.bsp
+.metals
+project/metals.sbt
+
+# vs code
+.vscode
+
+# scala 3
+.tasty
+
+# sbt
+project/project/
+project/target/
+target/
+
+# eclipse
+build/
+.classpath
+.project
+.settings
+.worksheet
+bin/
+.cache
+
+# intellij idea
+*.log
+*.iml
+*.ipr
+*.iws
+.idea
+
+# mac
+.DS_Store
+
+# other?
+.history
+.scala_dependencies
+.cache-main
+
+# general
+*.class
 
