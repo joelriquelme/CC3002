@@ -1,5 +1,7 @@
 package cl.uchile.dcc
-package gwent.cards
+package gwent.cards.climateCards
+
+import gwent.cards.Cards
 
 class ClimateCard (private val name : String,
                 private val cardType : String,

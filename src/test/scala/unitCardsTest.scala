@@ -5,7 +5,6 @@ import cl.uchile.dcc.gwent.cards
 class unitCardsTest extends FunSuite {
   val name = "TestCard"
   val name1 = "TestCard1"
-  val tipoU = "Unit"
   val fuerza = 5
   val subtipo = "TestSubTipo"
   val subtipoM = "melee"
@@ -30,25 +29,24 @@ class unitCardsTest extends FunSuite {
 
 
   override def beforeEach(context: BeforeEach): Unit = {
-    cartaU = new UnitCard(name, tipoU, subtipo, fuerza, habilidad)
-    cartaR = new UnitCard(name, tipoU, subtipoR, fuerza, habilidad)
-    cartaM = new UnitCard(name, tipoU, subtipoM, fuerza, habilidad)
-    cartaS = new UnitCard(name, tipoU, subtipoS, fuerza, habilidad)
-    cartaR1 = new UnitCard(name1, tipoU, subtipoR, fuerza, habilidad)
-    cartaM1 = new UnitCard(name1, tipoU, subtipoM, fuerza, habilidad)
-    cartaS1 = new UnitCard(name1, tipoU, subtipoS, fuerza, habilidad)
-    cartaRRM = new UnitCard(name, tipoU, subtipoR, fuerza, habilidadRM)
-    cartaMRM = new UnitCard(name, tipoU, subtipoM, fuerza, habilidadRM)
-    cartaSRM = new UnitCard(name, tipoU, subtipoS, fuerza, habilidadRM)
-    cartaRVE = new UnitCard(name1, tipoU, subtipoR, fuerza, habilidadVE)
-    cartaMVE = new UnitCard(name1, tipoU, subtipoM, fuerza, habilidadVE)
-    cartaSVE = new UnitCard(name1, tipoU, subtipoS, fuerza, habilidadVE)
+    cartaU = new UnitCard(name,  subtipo, fuerza, habilidad)
+    cartaR = new UnitCard(name,  subtipoR, fuerza, habilidad)
+    cartaM = new UnitCard(name,  subtipoM, fuerza, habilidad)
+    cartaS = new UnitCard(name,  subtipoS, fuerza, habilidad)
+    cartaR1 = new UnitCard(name1,  subtipoR, fuerza, habilidad)
+    cartaM1 = new UnitCard(name1,  subtipoM, fuerza, habilidad)
+    cartaS1 = new UnitCard(name1,  subtipoS, fuerza, habilidad)
+    cartaRRM = new UnitCard(name,  subtipoR, fuerza, habilidadRM)
+    cartaMRM = new UnitCard(name,  subtipoM, fuerza, habilidadRM)
+    cartaSRM = new UnitCard(name,  subtipoS, fuerza, habilidadRM)
+    cartaRVE = new UnitCard(name1,  subtipoR, fuerza, habilidadVE)
+    cartaMVE = new UnitCard(name1,  subtipoM, fuerza, habilidadVE)
+    cartaSVE = new UnitCard(name1,  subtipoS, fuerza, habilidadVE)
 
   }
   test("A unit card can be created with a name, type, sub-type, strength and ability") {
     assertNotEquals(cartU.name, "") // name cant be void string
     assertEquals(cartaU.name, name)
-    assertEquals(cartaU.cardType, tipoU)
     assertEquals(cartaU.cardSubType, subtipo)
     assertNotEquals(cartaU.strength, 0 ) // strength cant be 0
     assert(cartaU.strength >= 1) // strength should be greater than or equal to 1

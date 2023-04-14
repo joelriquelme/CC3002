@@ -1,6 +1,6 @@
 package cl.uchile.dcc
 
-import cl.uchile.dcc.gwent.cards.ClimateCard
+import cl.uchile.dcc.gwent.cards.climateCards.ClimateCard
 
 class climateCardsTest extends FunSuite {
 
