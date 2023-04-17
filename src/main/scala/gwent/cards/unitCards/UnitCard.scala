@@ -1,8 +1,7 @@
 
-package cl.uchile.dcc
-package gwent.cards.unitCards
+package cl.uchile.dcc.gwent.cards.unitCards
 
-import gwent.cards
+
 
 import cl.uchile.dcc.gwent.cards.Cards
 
@@ -15,7 +14,8 @@ class UnitCard (private val name : String,
                 private var strength : Int,
                 private val ability : String) extends Cards {
 
-  def play: Unit = {
+  def play(): Unit = {
 
   }
 }
+

@@ -1,5 +1,4 @@
-package cl.uchile.dcc
-package gwent.cards.unitCards
+import cl.uchile.dcc.gwent.cards.unitCards.UnitCard
 
 /**
  * @param name
@@ -8,6 +7,6 @@ package gwent.cards.unitCards
  */
 class RangeCard (private val name : String,
                 private var strength : Int,
-                private val ability : String) extends UnitCard {
+                private val ability : String) extends UnitCard (name, strength, ability) {
   
 }

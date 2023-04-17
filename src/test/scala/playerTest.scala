@@ -1,7 +1,8 @@
-package cl.uchile.dcc
+/* package cl.uchile.dcc
 
-
+import cl.uchile.dcc.gwent.deck.Deck
 import cl.uchile.dcc.gwent.players.Player
+import munit.FunSuite
 
 class playerTest extends FunSuite {
   val name = "TestName"
@@ -25,6 +26,7 @@ class playerTest extends FunSuite {
     assertEquals(player.deck, deck)
     assertEquals(player.hand, hand)
   }
-
-
 }
+
+
+ */

@@ -1,7 +1,4 @@
-package cl.uchile.dcc
-package gwent.players
-
-import gwent.cards.Cards
+import cl.uchile.dcc.gwent.cards.Cards
 
 class Player (private val name : String,
               private var gems : Int,
@@ -9,10 +6,10 @@ class Player (private val name : String,
               private val hand : Hand){
   
   def playCard(carta: Cards): Unit = {
-    carta.play()
-  }
-  def takeCard() : Unit = {
-    
+    hand.play(carta)
   }
 
+  def takeCard() : Unit = {
+    hand.take(deck)
+  }
 }

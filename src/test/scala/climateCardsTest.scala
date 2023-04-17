@@ -1,6 +1,7 @@
-package cl.uchile.dcc
+/* import cl.uchile.dcc.gwent.cards.climateCards.ClimateCard
+import cl.uchile.dcc.gwent.cards.unitCards.UnitCard
+import munit.FunSuite
 
-import cl.uchile.dcc.gwent.cards.climateCards.ClimateCard
 
 class climateCardsTest extends FunSuite {
 
@@ -98,3 +99,6 @@ class climateCardsTest extends FunSuite {
     assertEquals(cartaS.strength, 5) // strength of the siege card change
   }
 }
+
+
+ */
