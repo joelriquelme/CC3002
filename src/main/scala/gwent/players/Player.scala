@@ -1,11 +1,11 @@
-import cl.uchile.dcc.gwent.cards.Cards
+import cl.uchile.dcc.gwent.cards.Card
 import java.util.Objects
 class Player (private val name : String,
               private var gems : Int,
               private val deck : Deck,
               private val hand : Hand) extends Equals {
   
-  def playCard(carta: Cards): Unit = {
+  def playCard(carta: Card): Unit = {
     hand.play(carta)
   }
 

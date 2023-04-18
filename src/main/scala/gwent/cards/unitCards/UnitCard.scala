@@ -3,7 +3,7 @@ package cl.uchile.dcc.gwent.cards.unitCards
 
 
 
-import cl.uchile.dcc.gwent.cards.Cards
+import cl.uchile.dcc.gwent.cards.Card
 
 import java.util.Objects
 
@@ -14,7 +14,7 @@ import java.util.Objects
  */
 class UnitCard (private val name : String,
                 private var strength : Int,
-                private val ability : String) extends Cards, Equals {
+                private val ability : String) extends Card, Equals {
 
   def play(): Unit = {
 

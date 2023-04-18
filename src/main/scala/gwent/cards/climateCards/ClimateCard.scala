@@ -1,12 +1,12 @@
 package cl.uchile.dcc
 package gwent.cards.climateCards
 
-import gwent.cards.Cards
+import gwent.cards.Card
 
 import java.util.Objects
 
 class ClimateCard (private val name : String,
-                private val ability : String) extends Cards, Equals {
+                private val ability : String) extends Card, Equals {
 
   def play(): Unit = {
 

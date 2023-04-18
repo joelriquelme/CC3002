@@ -1,4 +1,4 @@
-import cl.uchile.dcc.gwent.cards.Cards
+import cl.uchile.dcc.gwent.cards.Card
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.cards.unitCards.UnitCard
 import munit.FunSuite
@@ -6,7 +6,7 @@ import munit.FunSuite
 class handTest extends FunSuite{
   var testHand: Hand = _
   var testHand2: Hand = _
-  var listOfCards: List[Cards] = _
+  var listOfCards: List[Card] = _
   var testDeck: Deck = _
   var A = new UnitCard("A", 1, "Ab")
   var B = new UnitCard("B", 1, "Ab")

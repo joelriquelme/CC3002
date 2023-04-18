@@ -1,15 +1,15 @@
-import cl.uchile.dcc.gwent.cards.Cards
+import cl.uchile.dcc.gwent.cards.Card
 
 import java.util.Objects
 
-class Deck (private var listOfCards : List[Cards]) extends Equals {
-  def take(): Cards = {
-    var carta: Cards = listOfCards.head
+class Deck (private var listOfCards : List[Card]) extends Equals {
+  def take(): Card = {
+    var carta: Card = listOfCards.head
     listOfCards = listOfCards.tail
     carta
   }
 
-  def getlistOfCards(): List[Cards] = {
+  def getlistOfCards(): List[Card] = {
     listOfCards
   }
 

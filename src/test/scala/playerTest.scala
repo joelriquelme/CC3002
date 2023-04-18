@@ -1,6 +1,6 @@
 
 import cl.uchile.dcc.gwent
-import cl.uchile.dcc.gwent.cards.Cards
+import cl.uchile.dcc.gwent.cards.Card
 import cl.uchile.dcc.gwent.cards.unitCards.UnitCard
 import munit.FunSuite
 
@@ -11,10 +11,10 @@ class playerTest extends FunSuite {
   var hand : Hand = _
   var player1 : Player = _
   var player2 : Player = _
-  var listOfCards: List[Cards] = _
+  var listOfCards: List[Card] = _
 
   override def beforeEach(context: BeforeEach): Unit = {
-    listOfCards = List[Cards](
+    listOfCards = List[Card](
       new UnitCard("A", 1, "Ab"),
       new UnitCard("B", 1, "Ab"),
       new UnitCard("C", 1, "Ab"),

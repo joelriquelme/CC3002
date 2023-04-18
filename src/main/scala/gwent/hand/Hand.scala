@@ -1,12 +1,12 @@
-import cl.uchile.dcc.gwent.cards.Cards
+import cl.uchile.dcc.gwent.cards.Card
 import cl.uchile.dcc.gwent
 
 import java.util.Objects
 import scala.concurrent.Batchable
 
-class Hand (private var listOfCards : List[Cards]) extends Equals {
+class Hand (private var listOfCards : List[Card]) extends Equals {
 
-  def play(c: Cards): Unit = {
+  def play(c: Card): Unit = {
     c.play()
     listOfCards = listOfCards.filter(!c.equals(_))
 
@@ -15,7 +15,7 @@ class Hand (private var listOfCards : List[Cards]) extends Equals {
   def take(deck: Deck) : Unit = {
     listOfCards = deck.take() :: listOfCards
   }
-  def getlistOfCards(): List[Cards] = {
+  def getlistOfCards(): List[Card] = {
     listOfCards
   }
 

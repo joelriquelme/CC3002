@@ -1,5 +1,6 @@
 import cl.uchile.dcc.gwent.cards
 import cl.uchile.dcc.gwent.cards.unitCards.UnitCard
+import cl.uchile.dcc.gwent.cards.unitCards.subclass.MeleeCard
 import munit.FunSuite
 
 class meleeCardTest extends FunSuite {

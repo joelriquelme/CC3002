@@ -1,4 +1,7 @@
-import cl.uchile.dcc.gwent.cards.unitCards.UnitCard
+package cl.uchile.dcc
+package gwent.cards.unitCards.subclass
+
+import gwent.cards.unitCards.UnitCard
 
 import java.util.Objects
 
