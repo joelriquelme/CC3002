@@ -25,7 +25,7 @@ class Hand (private var listOfCards : List[Card]) extends Equals {
     if (canEqual(that)) {
       val other = that.asInstanceOf[Hand]
       (this eq other) ||
-        (this.listOfCards == other.listOfCards)
+        (this.listOfCards == other.listOfCards && this.hashCode == other.hashCode)
     } else {
       false
     }

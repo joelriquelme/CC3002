@@ -32,5 +32,6 @@ class handTest extends FunSuite{
   }
   test("Testing an equals method for hand class"){
     assert(testHand.equals(testHand2))
+    assert(testHand2.equals(testHand))
   }
 }

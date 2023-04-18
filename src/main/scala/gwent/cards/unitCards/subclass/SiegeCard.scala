@@ -15,7 +15,7 @@ class SiegeCard (private val name : String,
     if (canEqual(that)) {
       val other = that.asInstanceOf[SiegeCard]
       (this eq other) ||
-        (this.name == other.name && this.strength == other.strength && this.ability == other.ability)
+        (this.name == other.name && this.strength == other.strength && this.ability == other.ability && this.hashCode == other.hashCode)
     } else {
       false
     }

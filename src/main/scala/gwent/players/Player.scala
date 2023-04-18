@@ -28,18 +28,18 @@ class Player (private val name : String,
   }
 
   // Equals
-
+  override def hashCode: Int = Objects.hash(classOf[Player], name, gems, deck, hand)
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Player]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
       val other = that.asInstanceOf[Player]
       (this eq other) ||
-        (this.name == other.name && this.gems == other.gems && this.deck == other.deck && this.hand == other.hand)
+        (this.name == other.name && this.gems == other.gems && this.deck == other.deck && this.hand == other.hand && this.hashCode == other.hashCode)
     } else {
       false
     }
 
   }
-  override def hashCode: Int = Objects.hash(classOf[Player], name, gems, deck, hand)
+  
 }
