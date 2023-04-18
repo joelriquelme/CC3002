@@ -2,11 +2,12 @@ import cl.uchile.dcc.gwent.cards.Cards
 import cl.uchile.dcc.gwent.cards.unitCards.UnitCard
 import cl.uchile.dcc.gwent
 import munit.FunSuite
-import munit.Clue.generate
+
 
 
 class deckTest extends FunSuite{
   var testDeck: Deck = _
+  var testDeck2: Deck = _
   var listOfCards: List[Cards] = _
 
   override def beforeEach(context: BeforeEach): Unit = {
@@ -16,6 +17,7 @@ class deckTest extends FunSuite{
       new UnitCard("C",1,"Ab"),
     )
     testDeck = new Deck(listOfCards)
+    testDeck2 = new Deck(listOfCards)
   }
   test("A deck can be create with a list of cards") {
     assertEquals(testDeck.getlistOfCards(), listOfCards)
@@ -23,7 +25,6 @@ class deckTest extends FunSuite{
   test("If you pick a card of a deck, the length of the deck decreases by 1"){
     testDeck.take()
     var lista = testDeck.getlistOfCards()
-    println(lista.length)
     assertEquals(lista.length, 2)
   }
   test("You can only take the card of the top of the desk"){
@@ -31,5 +32,7 @@ class deckTest extends FunSuite{
     listOfCards = listOfCards.tail
     assertEquals(testDeck.take(), listOfCards.head)
   }
-
+  test("Testing an equals method for deck class") {
+    assert(testDeck.equals(testDeck2))
+  }
 }
