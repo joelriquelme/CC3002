@@ -19,7 +19,7 @@ class MeleeCard (private val name : String,
     if (canEqual(that)) {
       val other = that.asInstanceOf[MeleeCard]
       (this eq other) ||
-        (this.name == other.name && this.strength == other.strength && this.ability == other.ability && this.hashCode == other.hashCode)
+        (this.name == other.name && this.strength == other.strength && this.ability == other.ability)
     } else {
       false
     }

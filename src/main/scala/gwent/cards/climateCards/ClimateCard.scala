@@ -25,13 +25,13 @@ class ClimateCard (private val name : String,
     if (canEqual(that)) {
       val other = that.asInstanceOf[ClimateCard]
       (this eq other) ||
-        (this.name == other.name && this.ability == other.ability && this.hashCode == other.hashCode)
+        (this.name == other.name && this.ability == other.ability)
     } else {
       false
     }
   }
 
   override def hashCode: Int = Objects.hash(classOf[ClimateCard], name, ability )
-  
-  
+
+
 }
