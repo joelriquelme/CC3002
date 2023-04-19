@@ -1,5 +1,8 @@
 import cl.uchile.dcc.gwent.cards.Card
+import cl.uchile.dcc.gwent.players.IPlayer
+
 import java.util.Objects
+
 class Player (private val name : String,
               private var gems : Int,
               private val deck : Deck,

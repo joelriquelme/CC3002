@@ -3,5 +3,6 @@ package gwent.players
 
 trait IPlayer {
   def playCard() : Unit
+  
   def takeCard() : Unit
 }

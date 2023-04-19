@@ -4,12 +4,47 @@ import java.util.Objects
 import scala.collection.mutable.ListBuffer
 
 class Deck (private var listOfCards : ListBuffer[Card]) extends Equals {
+  /** A class represent a deck.
+   *
+   * A deck is defined by a ListBuffer of Cards
+   *
+   * @param listOfCards The ListBuffer of cards in the deck
+   * @constructor Creates a new Deck with the specified ListBuffer of Cards
+   * @example
+   * {{{
+   * val deck = new ListBuffer(ListBuffer[Card](new UnitCard("A",1,"Ab"),
+   *                                            new UnitCard("B",1,"Ab"),
+   *                                            new UnitCard("C",1,"Ab"),
+   *                                            )
+   *                          )
+   * }}}
+   * @author Joel Riquelme
+   * @since 1.0.0
+   * @version 1.0.0
+   */
+
+  /**Take a card of the deck
+   *
+   * Take the card of the top of the deck (the head of the ListBuffer), remove them of the deck and return the card.
+   *
+   * @return A Card of the top of the deck
+   * @example
+   * {{{
+   * val deck = new ListBuffer(ListBuffer[Card](new UnitCard("A",1,"Ab"),
+   *                                            new UnitCard("B",1,"Ab"),
+   *                                            new UnitCard("C",1,"Ab"),
+   *                                            )
+   *                          )
+   * var card = deck.take()
+   * }}}
+   */
   def take(): Card = {
     var carta: Card = listOfCards.head
     listOfCards = listOfCards.tail
     carta
   }
-
+  
+  /** Getter of the param listOfCards */
   def getlistOfCards(): ListBuffer[Card] = {
     listOfCards
   }

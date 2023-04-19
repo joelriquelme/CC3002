@@ -18,7 +18,7 @@ import java.util.Objects
  *
  * @example
  * {{{
- * val SiegeCard = new ClimateCard("Archer","Power of the wind")
+ * val SiegeCard = new SiegeCard("Archer","Power of the wind")
  * }}}
  *
  * @author Joel Riquelme
