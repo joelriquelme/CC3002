@@ -3,17 +3,19 @@ import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.cards.unitCards.UnitCard
 import munit.FunSuite
 
+import scala.collection.mutable.ListBuffer
+
 class handTest extends FunSuite{
   var testHand: Hand = _
   var testHand2: Hand = _
-  var listOfCards: List[Card] = _
+  var listOfCards: ListBuffer[Card] = _
   var testDeck: Deck = _
   var A = new UnitCard("A", 1, "Ab")
   var B = new UnitCard("B", 1, "Ab")
   var C = new UnitCard("C", 1, "Ab")
   
   override def beforeEach(context: BeforeEach): Unit = {
-    listOfCards = List(A,B,C)
+    listOfCards = ListBuffer(A,B,C)
     testHand = new Hand(listOfCards)
     testHand2 = new Hand(listOfCards)
     testDeck = new Deck(listOfCards)

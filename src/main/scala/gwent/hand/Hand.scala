@@ -3,19 +3,20 @@ import cl.uchile.dcc.gwent
 
 import java.util.Objects
 import scala.concurrent.Batchable
+import scala.collection.mutable.ListBuffer
 
-class Hand (private var listOfCards : List[Card]) extends Equals {
+class Hand (private val listOfCards : ListBuffer[Card]) extends Equals {
 
   def play(c: Card): Unit = {
     c.play()
-    listOfCards = listOfCards.filter(!c.equals(_))
+    listOfCards -= c
 
   }
   //Getters
   def take(deck: Deck) : Unit = {
-    listOfCards = deck.take() :: listOfCards
+    listOfCards += deck.take()
   }
-  def getlistOfCards(): List[Card] = {
+  def getlistOfCards(): ListBuffer[Card] = {
     listOfCards
   }
 

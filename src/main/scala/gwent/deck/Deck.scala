@@ -1,15 +1,16 @@
 import cl.uchile.dcc.gwent.cards.Card
 
 import java.util.Objects
+import scala.collection.mutable.ListBuffer
 
-class Deck (private var listOfCards : List[Card]) extends Equals {
+class Deck (private var listOfCards : ListBuffer[Card]) extends Equals {
   def take(): Card = {
     var carta: Card = listOfCards.head
     listOfCards = listOfCards.tail
     carta
   }
 
-  def getlistOfCards(): List[Card] = {
+  def getlistOfCards(): ListBuffer[Card] = {
     listOfCards
   }
 
