@@ -28,5 +28,10 @@ class unitCardTest extends FunSuite {
   test("Testing an equals method for UnitCard class") {
     assert(carta1.equals(carta2))
     assert(carta2.equals(carta1))
+    assert(!carta1.equals("Test"))
+    assert(carta1.hashCode == carta2.hashCode)
+  }
+  test("A method play can be called") {
+    carta1.play()
   }
 }

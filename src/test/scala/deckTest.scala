@@ -37,5 +37,7 @@ class deckTest extends FunSuite{
   test("Testing an equals method for deck class") {
     assert(testDeck.equals(testDeck2))
     assert(testDeck2.equals(testDeck))
+    assert(!testDeck.equals("Test"))
+    assert(testDeck.hashCode == testDeck2.hashCode)
   }
 }
