@@ -1,7 +1,7 @@
 package cl.uchile.dcc
 package gwent.cards.unitCards.subclass
 
-import gwent.cards.unitCards.UnitCard
+import gwent.cards.unitCards.AbstractUnitCard
 
 import java.util.Objects
 
@@ -25,15 +25,15 @@ import java.util.Objects
  * @since 1.0.0
  * @version 1.0.0
  */
-class SiegeCard (private val name : String,
-                 private var strength : Int,
-                 private val ability : String) extends UnitCard (name, strength, ability), Equals {
+class SiegeCardAbstract(private val name : String,
+                        private var strength : Int,
+                        private val ability : String) extends AbstractUnitCard (name, strength, ability), Equals {
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[SiegeCard]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[SiegeCardAbstract]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[SiegeCard]
+      val other = that.asInstanceOf[SiegeCardAbstract]
       (this eq other) ||
         (this.name == other.name && this.strength == other.strength && this.ability == other.ability)
     } else {
@@ -41,7 +41,7 @@ class SiegeCard (private val name : String,
     }
   }
 
-  override def hashCode: Int = Objects.hash(classOf[SiegeCard], name, strength, ability)  
+  override def hashCode: Int = Objects.hash(classOf[SiegeCardAbstract], name, strength, ability)  
 }
 
 

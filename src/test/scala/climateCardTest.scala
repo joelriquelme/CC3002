@@ -1,6 +1,6 @@
 import cl.uchile.dcc.gwent.cards
 import cl.uchile.dcc.gwent.cards.climateCards.ClimateCard
-import cl.uchile.dcc.gwent.cards.unitCards.UnitCard
+import cl.uchile.dcc.gwent.cards.unitCards.AbstractUnitCard
 import munit.FunSuite
 
 class climateCardTest extends FunSuite {

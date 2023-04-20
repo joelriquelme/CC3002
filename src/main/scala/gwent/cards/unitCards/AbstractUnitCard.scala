@@ -27,9 +27,9 @@ import java.util.Objects
  * @since 1.0.0
  * @version 1.0.0
  */
-abstract class UnitCard (private val name : String,
-                private var strength : Int,
-                private val ability : String) extends Card, Equals {
+abstract class AbstractUnitCard(private val name : String,
+                                private var strength : Int,
+                                private val ability : String) extends Card, Equals {
 
   /** Method not implemented yet. */
   def play(): Unit = {
