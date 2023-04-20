@@ -2,6 +2,7 @@
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.cards.Card
 import cl.uchile.dcc.gwent.cards.unitCards.UnitCard
+import cl.uchile.dcc.gwent.cards.unitCards.subclass.{MeleeCard, RangeCard, SiegeCard}
 import munit.FunSuite
 
 import scala.collection.mutable.ListBuffer
@@ -17,9 +18,9 @@ class playerTest extends FunSuite {
 
   override def beforeEach(context: BeforeEach): Unit = {
     listOfCards = ListBuffer[Card](
-      new UnitCard("A", 1, "Ab"),
-      new UnitCard("B", 1, "Ab"),
-      new UnitCard("C", 1, "Ab"),
+      new MeleeCard("A", 1, "Ab"),
+      new RangeCard("B", 1, "Ab"),
+      new SiegeCard("C", 1, "Ab"),
     )
     deck = new Deck(listOfCards)
     hand = new Hand(listOfCards)
@@ -36,7 +37,7 @@ class playerTest extends FunSuite {
     assertEquals(player1.gethand(), hand)
   }
   test("If you play a card, the length of your hand decrease by 1"){
-    player1.playCard(new UnitCard("A", 1, "Ab"))
+    player1.playCard(new MeleeCard("A", 1, "Ab"))
     assertEquals(player1.gethand().getlistOfCards().length, 2 )
   }
   test("If you take a card, the length of your deck decrease by 1 and you hand increase by 2"){

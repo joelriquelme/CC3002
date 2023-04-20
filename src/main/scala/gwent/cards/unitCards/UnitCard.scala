@@ -9,7 +9,7 @@ import java.util.Objects
 
 /** A class represent a UnitCard.
  *
- * A SiegeCard is defined by a name, strength
+ * A UnitCard is defined by a name, strength
  * and an ability, all greater than zero or non-void string according to the case.
  *
  * @param name The name of the card.
@@ -27,7 +27,7 @@ import java.util.Objects
  * @since 1.0.0
  * @version 1.0.0
  */
-class UnitCard (private val name : String,
+abstract class UnitCard (private val name : String,
                 private var strength : Int,
                 private val ability : String) extends Card, Equals {
 
@@ -48,19 +48,5 @@ class UnitCard (private val name : String,
   def getability(): String = {
     ability
   }
-
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[UnitCard]
-
-  override def equals(that: Any): Boolean = {
-    if (canEqual(that)) {
-      val other = that.asInstanceOf[UnitCard]
-      (this eq other) ||
-        (this.name == other.name && this.strength == other.strength && this.ability == other.ability)
-    } else {
-      false
-    }
-  }
-
-  override def hashCode: Int = Objects.hash(classOf[UnitCard], name, strength, ability)
 }
 
