@@ -41,4 +41,12 @@ class deckTest extends FunSuite{
     assert(!testDeck.equals("Test"))
     assert(testDeck.hashCode == testDeck2.hashCode)
   }
+  test("A deck can be shuffled"){
+    assertEquals(testDeck.getlistOfCards().size,3)
+    testDeck.shuffleDeck()
+    assertEquals(testDeck.getlistOfCards().size,3)
+    for(w <- listOfCards){
+      assert(testDeck.getlistOfCards().contains(w))
+    }
+  }
 }
