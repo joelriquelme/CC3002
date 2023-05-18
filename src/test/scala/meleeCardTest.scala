@@ -1,6 +1,6 @@
 import cl.uchile.dcc.gwent.cards
 import cl.uchile.dcc.gwent.cards.unitCards.AbstractUnitCard
-import cl.uchile.dcc.gwent.cards.unitCards.subclass.MeleeCardAbstract
+import cl.uchile.dcc.gwent.cards.unitCards.subclass.MeleeCard
 import munit.FunSuite
 
 class meleeCardTest extends FunSuite {
@@ -8,15 +8,15 @@ class meleeCardTest extends FunSuite {
   val name1 = "TestCard1"
   var strength: Int = _
   val ability: String = "Ab"
-  var carta1 : MeleeCardAbstract = _
-  var carta2 : MeleeCardAbstract = _
+  var carta1 : MeleeCard = _
+  var carta2 : MeleeCard = _
 
 
 
   override def beforeEach(context: BeforeEach): Unit = {
     strength = 5
-    carta1 = new MeleeCardAbstract(name, strength, ability)
-    carta2 = new MeleeCardAbstract(name, strength, ability)
+    carta1 = new MeleeCard(name, strength, ability)
+    carta2 = new MeleeCard(name, strength, ability)
   }
   test("A siege card can be created with a name, strength and ability") {
     assertNotEquals(carta1.getname(), "") // name cant be void string

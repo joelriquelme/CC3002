@@ -25,14 +25,14 @@ import java.util.Objects
  * @since 1.0.0
  * @version 1.0.0
  */
-class MeleeCardAbstract(private val name : String,
-                        private var strength : Int,
-                        private val ability : String) extends AbstractUnitCard (name, strength, ability), Equals {
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[MeleeCardAbstract]
+class MeleeCard(private val name : String,
+                private var strength : Int,
+                private val ability : String) extends AbstractUnitCard (name, strength, ability), Equals {
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[MeleeCard]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[MeleeCardAbstract]
+      val other = that.asInstanceOf[MeleeCard]
       (this eq other) ||
         (this.name == other.name && this.strength == other.strength && this.ability == other.ability)
     } else {
@@ -40,5 +40,5 @@ class MeleeCardAbstract(private val name : String,
     }
   }
 
-  override def hashCode: Int = Objects.hash(classOf[SiegeCardAbstract], name, strength, ability)
+  override def hashCode: Int = Objects.hash(classOf[SiegeCard], name, strength, ability)
 }

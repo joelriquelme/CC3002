@@ -1,7 +1,7 @@
 import cl.uchile.dcc.gwent.cards.Card
 import cl.uchile.dcc.gwent.cards.unitCards.AbstractUnitCard
 import cl.uchile.dcc.gwent
-import cl.uchile.dcc.gwent.cards.unitCards.subclass.{MeleeCardAbstract, RangeCardAbstract, SiegeCardAbstract}
+import cl.uchile.dcc.gwent.cards.unitCards.subclass.{MeleeCard, RangeCard, SiegeCard}
 import munit.FunSuite
 
 import scala.collection.mutable.ListBuffer
@@ -15,9 +15,9 @@ class deckTest extends FunSuite{
 
   override def beforeEach(context: BeforeEach): Unit = {
     listOfCards = ListBuffer[Card](
-      new MeleeCardAbstract("A",1,"Ab"),
-      new RangeCardAbstract("B",1,"Ab"),
-      new SiegeCardAbstract("C",1,"Ab"),
+      new MeleeCard("A",1,"Ab"),
+      new RangeCard("B",1,"Ab"),
+      new SiegeCard("C",1,"Ab"),
     )
     testDeck = new Deck(listOfCards)
     testDeck2 = new Deck(listOfCards)

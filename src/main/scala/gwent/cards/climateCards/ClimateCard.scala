@@ -27,7 +27,9 @@ class ClimateCard (private val name : String,
                 private val ability : String) extends Card, Equals {
   
   /** Method not implemented yet. */
-  def play(): Unit = {}
+  def play(): Unit = {
+    
+  }
 
   /** Getter of the param name. */
   def getname(): String = {
