@@ -1,5 +1,5 @@
 
-package cl.uchile.dcc.gwent.cards.unitCards
+package cl.uchile.dcc.gwent.cards.unit
 
 
 

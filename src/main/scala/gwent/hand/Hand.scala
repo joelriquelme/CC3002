@@ -1,5 +1,6 @@
 import cl.uchile.dcc.gwent.cards.Card
 import cl.uchile.dcc.gwent
+import cl.uchile.dcc.gwent.board.Board
 
 import java.util.Objects
 import scala.concurrent.Batchable
@@ -41,8 +42,8 @@ class Hand (private val listOfCards : ListBuffer[Card]) extends Equals {
    * hand.play(new UnitCard("A",1,"Ab")
    * }}}
    */
-  def play(c: Card): Unit = {
-    c.play()
+  def play(c: Card, b: Board): Unit = {
+    c.play(b)
     listOfCards -= c
   }
 

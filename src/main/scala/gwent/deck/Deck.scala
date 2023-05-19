@@ -40,7 +40,7 @@ class Deck (private var listOfCards : ListBuffer[Card]) extends Equals {
    * }}}
    */
   def take(): Card = {
-    var carta: Card = listOfCards.head
+    val carta: Card = listOfCards.head
     listOfCards = listOfCards.tail
     carta
   }

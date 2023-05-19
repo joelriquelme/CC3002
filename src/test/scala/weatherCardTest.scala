@@ -1,22 +1,22 @@
 import cl.uchile.dcc.gwent.cards
-import cl.uchile.dcc.gwent.cards.climateCards.ClimateCard
-import cl.uchile.dcc.gwent.cards.unitCards.AbstractUnitCard
+import cl.uchile.dcc.gwent.cards.weather.WeatherCard
+import cl.uchile.dcc.gwent.cards.unit.AbstractUnitCard
 import munit.FunSuite
 
-class climateCardTest extends FunSuite {
+class weatherCardTest extends FunSuite {
   val name = "TestCard"
   val name1 = "CardTest"
   val ability: String = "Ab"
-  var carta1 : ClimateCard = _
-  var carta2 : ClimateCard = _
-  var carta3 : ClimateCard = _
+  var carta1 : WeatherCard = _
+  var carta2 : WeatherCard = _
+  var carta3 : WeatherCard = _
 
 
 
   override def beforeEach(context: BeforeEach): Unit = {
-    carta1 = new ClimateCard(name, ability)
-    carta2 = new ClimateCard(name, ability)
-    carta3 = new ClimateCard(name1, ability)
+    carta1 = new WeatherCard(name, ability)
+    carta2 = new WeatherCard(name, ability)
+    carta3 = new WeatherCard(name1, ability)
   }
   test("A unit card can be created with a name, strength and ability") {
     assertNotEquals(carta1.getname(), "") // name cant be void string

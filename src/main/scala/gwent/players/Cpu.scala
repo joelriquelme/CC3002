@@ -27,10 +27,10 @@ import java.util.Objects
  * @since 1.0.0
  * @version 1.0.0
  */
-class Player (private val name : String,
-              private var gems : Int,
-              private val deck : Deck,
-              private val hand : Hand) extends Equals {
+class Cpu(private val name : String,
+          private var gems : Int,
+          private val deck : Deck,
+          private val hand : Hand) extends Equals {
 
   /** Play a card.
    *
@@ -88,11 +88,11 @@ class Player (private val name : String,
     hand
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[Player]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[Cpu]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[Player]
+      val other = that.asInstanceOf[Cpu]
       (this eq other) ||
         (this.name == other.name && this.gems == other.gems && this.deck == other.deck && this.hand == other.hand)
     } else {
@@ -100,5 +100,5 @@ class Player (private val name : String,
     }
   }
   
-  override def hashCode: Int = Objects.hash(classOf[Player], name, gems, deck, hand)
+  override def hashCode: Int = Objects.hash(classOf[Cpu], name, gems, deck, hand)
 }

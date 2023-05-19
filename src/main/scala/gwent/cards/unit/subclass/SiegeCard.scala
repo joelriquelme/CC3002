@@ -1,39 +1,43 @@
 package cl.uchile.dcc
-package gwent.cards.unitCards.subclass
+package gwent.cards.unit.subclass
 
-import gwent.cards.unitCards.AbstractUnitCard
+import gwent.cards.unit.AbstractUnitCard
 
 import java.util.Objects
 
-/** A class represent a RangeCard.
+/** A class represent a SiegeCard.
  *
- * A RangeCard is a subclass of UnitCard and is defined by a name, strength
+ * A SiegeCard is a subclass of UnitCard and is defined by a name, strength
  * and an ability, all greater than zero or non-void string according to the case.
  *
  * @param name The name of the card.
  * @param strength The strength of the card.
  * @param ability The ability of the card.
  *
- * @constructor Creates a new RangeCard with the specified name, strength and ability.
+ * @constructor Creates a new SiegeCard with the specified name, strength and ability.
  *
  * @example
  * {{{
- * val RangeCard = new ClimateCard("Archer","Power of the wind")
+ * val SiegeCard = new SiegeCard("Archer","Power of the wind")
  * }}}
  *
  * @author Joel Riquelme
  * @since 1.0.0
  * @version 1.0.0
  */
-class RangeCard(private val name : String,
+class SiegeCard(private val name : String,
                 private var strength : Int,
                 private val ability : String) extends AbstractUnitCard (name, strength, ability), Equals {
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[RangeCard]
+  override def play(): Unit = {
+    
+  }
+  
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[SiegeCard]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[RangeCard]
+      val other = that.asInstanceOf[SiegeCard]
       (this eq other) ||
         (this.name == other.name && this.strength == other.strength && this.ability == other.ability)
     } else {
@@ -41,5 +45,7 @@ class RangeCard(private val name : String,
     }
   }
 
-  override def hashCode: Int = Objects.hash(classOf[RangeCard], name, strength, ability)  
+  override def hashCode: Int = Objects.hash(classOf[SiegeCard], name, strength, ability)  
 }
+
+

@@ -1,7 +1,9 @@
 package cl.uchile.dcc
-package gwent.cards.climateCards
+package gwent.cards.weather
 
 import gwent.cards.Card
+
+import cl.uchile.dcc.gwent.board.Board
 
 import java.util.Objects
 
@@ -23,11 +25,11 @@ import java.util.Objects
  * @since 1.0.0
  * @version 1.0.0
  */
-class ClimateCard (private val name : String,
-                private val ability : String) extends Card, Equals {
+class WeatherCard(private val name : String,
+                  private val ability : String) extends Card, Equals {
   
   /** Method not implemented yet. */
-  def play(): Unit = {
+  def play(b: Board): Unit = {
     
   }
 
@@ -41,11 +43,11 @@ class ClimateCard (private val name : String,
     ability
   }
 
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[ClimateCard]
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[WeatherCard]
 
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
-      val other = that.asInstanceOf[ClimateCard]
+      val other = that.asInstanceOf[WeatherCard]
       (this eq other) ||
         (this.name == other.name && this.ability == other.ability)
     } else {
@@ -53,7 +55,7 @@ class ClimateCard (private val name : String,
     }
   }
 
-  override def hashCode: Int = Objects.hash(classOf[ClimateCard], name, ability )
+  override def hashCode: Int = Objects.hash(classOf[WeatherCard], name, ability )
 
 
 }

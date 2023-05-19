@@ -1,7 +1,7 @@
 import cl.uchile.dcc.gwent.cards.Card
 import cl.uchile.dcc.gwent
-import cl.uchile.dcc.gwent.cards.unitCards.AbstractUnitCard
-import cl.uchile.dcc.gwent.cards.unitCards.subclass.{RangeCard, SiegeCard, MeleeCard}
+import cl.uchile.dcc.gwent.cards.unit.AbstractUnitCard
+import cl.uchile.dcc.gwent.cards.unit.subclass.{RangeCard, SiegeCard, MeleeCard}
 import munit.FunSuite
 
 import scala.collection.mutable.ListBuffer
