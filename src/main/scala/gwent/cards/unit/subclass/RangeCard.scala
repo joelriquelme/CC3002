@@ -3,6 +3,8 @@ package gwent.cards.unit.subclass
 
 import gwent.cards.unit.AbstractUnitCard
 
+import cl.uchile.dcc.gwent.board.Board
+
 import java.util.Objects
 
 /** A class represent a RangeCard.
@@ -28,9 +30,33 @@ import java.util.Objects
 class RangeCard(private val name : String,
                 private var strength : Int,
                 private val ability : String) extends AbstractUnitCard (name, strength, ability), Equals {
+  
+  /** Play a card (For Humans).
+   *
+   * Play a card on a board given as parameter. Call the method for play of the board.
+   *
+   * @param b The board where you go to play
+   * @example
+   * {{{
+   * RangeCard.playHuman(new Board())
+   * }}}
+   */
+  def playHuman(b: Board): Unit = {
+    b.playRangeHuman(this)
+  }
 
-  override def play(): Unit = {
-    
+  /** Play a card (For Cpu).
+   *
+   * Play a card on a board given as parameter. Call the method for play of the board.
+   *
+   * @param b The board where you go to play
+   * @example
+   * {{{
+   * RangeCard.playCpu(new Board())
+   * }}}
+   */
+  def playCpu(b: Board): Unit = {
+    b.playRangeCpu(this)
   }
   
   override def canEqual(that: Any): Boolean = that.isInstanceOf[RangeCard]

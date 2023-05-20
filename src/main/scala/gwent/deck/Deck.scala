@@ -1,28 +1,32 @@
+package cl.uchile.dcc
+package gwent.deck
+
 import cl.uchile.dcc.gwent.cards.Card
 
 import java.util.Objects
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
 
+/** A class represent a deck.
+ *
+ * A deck is defined by a ListBuffer of Cards
+ *
+ * @param listOfCards The ListBuffer of cards in the deck
+ * @constructor Creates a new Deck with the specified ListBuffer of Cards
+ * @example
+ * {{{
+ * val deck = new ListBuffer(ListBuffer[Card](new UnitCard("A",1,"Ab"),
+ *                                            new UnitCard("B",1,"Ab"),
+ *                                            new UnitCard("C",1,"Ab"),
+ *                                            )
+ *                          )
+ * }}}
+ * @author Joel Riquelme
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 class Deck (private var listOfCards : ListBuffer[Card]) extends Equals {
-  /** A class represent a deck.
-   *
-   * A deck is defined by a ListBuffer of Cards
-   *
-   * @param listOfCards The ListBuffer of cards in the deck
-   * @constructor Creates a new Deck with the specified ListBuffer of Cards
-   * @example
-   * {{{
-   * val deck = new ListBuffer(ListBuffer[Card](new UnitCard("A",1,"Ab"),
-   *                                            new UnitCard("B",1,"Ab"),
-   *                                            new UnitCard("C",1,"Ab"),
-   *                                            )
-   *                          )
-   * }}}
-   * @author Joel Riquelme
-   * @since 1.0.0
-   * @version 1.0.0
-   */
+  
 
   /**Take a card of the deck.
    *

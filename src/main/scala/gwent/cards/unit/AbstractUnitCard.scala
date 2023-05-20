@@ -1,8 +1,8 @@
 
-package cl.uchile.dcc.gwent.cards.unit
+package cl.uchile.dcc
+package gwent.cards.unit
 
-
-
+import cl.uchile.dcc.gwent.board.Board
 import cl.uchile.dcc.gwent.cards.Card
 
 import java.util.Objects
@@ -30,8 +30,9 @@ import java.util.Objects
 abstract class AbstractUnitCard(private val name : String,
                                 private var strength : Int,
                                 private val ability : String) extends Card, Equals {
-  
-  def play(): Unit 
+  def playHuman(b: Board): Unit
+
+  def playCpu(b: Board): Unit
 
   /** Getter of the param name. */
   def getname(): String = {

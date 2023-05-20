@@ -1,19 +1,24 @@
+package cl.uchile.dcc
+package gwent.players
+
+import cl.uchile.dcc.gwent.*
 import cl.uchile.dcc.gwent.board.Board
 import cl.uchile.dcc.gwent.cards.Card
-import cl.uchile.dcc.gwent.players.IPlayer
+import cl.uchile.dcc.gwent.deck.Deck
+import cl.uchile.dcc.gwent.hand.Hand
 
 import java.util.Objects
 
-/** A class represent a player.
+/** A class represent a cpu.
  *
- * A hand is defined by a name, gems, deck and a hand.
+ * A cpu is defined by a name, gems, deck and a hand.
  *
  * @param name The name of the player
  * @param gems The count of gems
  * @param deck The deck of the player
  * @param hand The hand of the player
  *
- * @constructor Creates a new hand with the specified name, gems, deck and hand.
+ * @constructor Creates a new cpu with the specified name, gems, deck and hand.
  * @example
  * {{{
  * val listOfCards = new ListBuffer(ListBuffer[Card](new UnitCard("A",1,"Ab"),
@@ -21,7 +26,7 @@ import java.util.Objects
  *                                            new UnitCard("C",1,"Ab"),
  *                                            )
  *                          )
- * val player = new Player("Pedro", 2, new Deck(listOfCards), new Hand(listOfCards))
+ * val cpu = new Cpu("Pedro", 2, new Deck(listOfCards), new Hand(listOfCards))
  * }}}
  * @author Joel Riquelme
  * @since 1.0.0
@@ -49,7 +54,7 @@ class Cpu(private val name : String,
    * }}}
    */
   def playCard(carta: Card, tablero: Board): Unit = {
-    hand.play(carta, tablero)
+    hand.playCpu(carta, tablero)
   }
 
   /** Take a card of the deck.

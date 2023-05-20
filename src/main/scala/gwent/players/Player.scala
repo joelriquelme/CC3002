@@ -1,19 +1,24 @@
+package cl.uchile.dcc
+package gwent.players
+
+import cl.uchile.dcc.gwent.*
 import cl.uchile.dcc.gwent.board.Board
 import cl.uchile.dcc.gwent.cards.Card
-import cl.uchile.dcc.gwent.players.IPlayer
+import cl.uchile.dcc.gwent.deck.Deck
+import cl.uchile.dcc.gwent.hand.Hand
 
 import java.util.Objects
 
 /** A class represent a player.
  *
- * A hand is defined by a name, gems, deck and a hand.
+ * A player is defined by a name, gems, deck and a hand.
  *
  * @param name The name of the player
  * @param gems The count of gems
  * @param deck The deck of the player
  * @param hand The hand of the player
  *
- * @constructor Creates a new hand with the specified name, gems, deck and hand.
+ * @constructor Creates a new player with the specified name, gems, deck and hand.
  * @example
  * {{{
  * val listOfCards = new ListBuffer(ListBuffer[Card](new UnitCard("A",1,"Ab"),
@@ -48,8 +53,8 @@ class Player (private val name : String,
    * player.play(new UnitCard("A",1,"Ab"))
    * }}}
    */
-  def playCard(carta: Card, tablero: Board): Unit = {
-    hand.play(carta, tablero)
+  def playCard(c: Card, b: Board): Unit = {
+    hand.playHuman(c, b)
   }
 
   /** Take a card of the deck.

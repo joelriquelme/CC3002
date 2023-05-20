@@ -1,3 +1,4 @@
+import cl.uchile.dcc.gwent.board.Board
 import cl.uchile.dcc.gwent.cards
 import cl.uchile.dcc.gwent.cards.unit.AbstractUnitCard
 import cl.uchile.dcc.gwent.cards.unit.subclass.MeleeCard
@@ -10,6 +11,7 @@ class unitCardTest extends FunSuite {
   val ability: String = "Ab"
   var carta1 : AbstractUnitCard = _
   var carta2 : AbstractUnitCard = _
+  var testBoard = new Board()
 
 
 
@@ -17,6 +19,7 @@ class unitCardTest extends FunSuite {
     strength = 5
     carta1 = new MeleeCard(name, strength, ability)
     carta2 = new MeleeCard(name, strength, ability)
+    testBoard = new Board()
   }
   test("A unit card can be created with a name, strength and ability") {
     assertNotEquals(carta1.getname(), "") // name cant be void string
@@ -33,6 +36,7 @@ class unitCardTest extends FunSuite {
     assert(carta1.hashCode == carta2.hashCode)
   }
   test("A method play can be called") {
-    carta1.play()
+    carta1.playHuman(testBoard)
+    carta1.playCpu(testBoard)
   }
 }

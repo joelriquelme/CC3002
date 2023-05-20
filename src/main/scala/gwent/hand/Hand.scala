@@ -1,6 +1,10 @@
-import cl.uchile.dcc.gwent.cards.Card
-import cl.uchile.dcc.gwent
+package cl.uchile.dcc
+package gwent.hand
+
+import cl.uchile.*
 import cl.uchile.dcc.gwent.board.Board
+import cl.uchile.dcc.gwent.cards.Card
+import cl.uchile.dcc.gwent.deck.Deck
 
 import java.util.Objects
 import scala.concurrent.Batchable
@@ -27,11 +31,12 @@ import scala.collection.mutable.ListBuffer
  */
 class Hand (private val listOfCards : ListBuffer[Card]) extends Equals {
 
-  /** Play a card of the hand.
+  /** Play a card of the hand (For Humans).
    *
    * Play a card and remove them of the hand.
    *
    * @param c The card that you play.
+   * @param b The board where you play.
    * @example
    * {{{
    * val hand = new ListBuffer(ListBuffer[Card](new UnitCard("A",1,"Ab"),
@@ -39,11 +44,32 @@ class Hand (private val listOfCards : ListBuffer[Card]) extends Equals {
    *                                            new UnitCard("C",1,"Ab"),
    *                                            )
    *                          )
-   * hand.play(new UnitCard("A",1,"Ab")
+   * hand.play(new UnitCard("A",1,"Ab"), new Board())
    * }}}
    */
-  def play(c: Card, b: Board): Unit = {
-    c.play(b)
+  def playHuman(c: Card, b: Board): Unit = {
+    c.playHuman(b)
+    listOfCards -= c
+  }
+
+  /** Play a card of the hand (For Cpu).
+   *
+   * Play a card and remove them of the hand.
+   *
+   * @param c The card that you play.
+   * @param b The board where you play.
+   * @example
+   * {{{
+   * val hand = new ListBuffer(ListBuffer[Card](new UnitCard("A",1,"Ab"),
+   *                                            new UnitCard("B",1,"Ab"),
+   *                                            new UnitCard("C",1,"Ab"),
+   *                                            )
+   *                          )
+   * hand.play(new UnitCard("A",1,"Ab"), new Board())
+   * }}}
+   */
+  def playCpu(c: Card, b: Board): Unit = {
+    c.playCpu(b)
     listOfCards -= c
   }
 

@@ -3,6 +3,8 @@ package gwent.cards.unit.subclass
 
 import gwent.cards.unit.AbstractUnitCard
 
+import cl.uchile.dcc.gwent.board.Board
+
 import java.util.Objects
 
 /** A class represent a MeleeCard.
@@ -28,12 +30,36 @@ import java.util.Objects
 class MeleeCard(private val name : String,
                 private var strength : Int,
                 private val ability : String) extends AbstractUnitCard (name, strength, ability), Equals {
-  override def canEqual(that: Any): Boolean = that.isInstanceOf[MeleeCard]
 
-  override def play(): Unit = {
-    
+  /** Play a card (For Humans).
+   *
+   * Play a card on a board given as parameter. Call the method for play of the board.
+   *
+   * @param b The board where you go to play
+   * @example
+   * {{{
+   * MeleeCard.playHuman(new Board())
+   * }}}
+   */
+  def playHuman(b: Board): Unit = {
+    b.playMeleeHuman(this)
   }
 
+  /** Play a card (For Cpu).
+   *
+   * Play a card on a board given as parameter. Call the method for play of the board.
+   *
+   * @param b The board where you go to play
+   * @example
+   * {{{
+   * MeleeCard.playCpu(new Board())
+   * }}}
+   */
+  def playCpu(b: Board): Unit = {
+    b.playMeleeCpu(this)
+  }
+
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[MeleeCard]
   override def equals(that: Any): Boolean = {
     if (canEqual(that)) {
       val other = that.asInstanceOf[MeleeCard]

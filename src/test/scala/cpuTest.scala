@@ -1,23 +1,23 @@
+package cl.uchile.dcc
 
-import cl.uchile.dcc.gwent
-import cl.uchile.dcc.gwent.board.Board
-import cl.uchile.dcc.gwent.cards.Card
-import cl.uchile.dcc.gwent.cards.unit.AbstractUnitCard
-import cl.uchile.dcc.gwent.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
-import cl.uchile.dcc.gwent.deck.Deck
-import cl.uchile.dcc.gwent.hand.Hand
-import cl.uchile.dcc.gwent.players.Player
+import gwent.board.Board
+import gwent.cards.Card
+import gwent.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
+import gwent.deck.Deck
+import gwent.hand.Hand
+import gwent.players.{Cpu, Player}
+
 import munit.FunSuite
 
 import scala.collection.mutable.ListBuffer
 
-class playerTest extends FunSuite {
+class cpuTest extends FunSuite {
   val name = "TestName"
   var gems = 2
   var deck : Deck = _
   var hand : Hand = _
-  var player1 : Player = _
-  var player2 : Player = _
+  var player1 : Cpu = _
+  var player2 : Cpu = _
   var listOfCards: ListBuffer[Card] = _
   var testBoard: Board = new Board()
 
@@ -29,8 +29,8 @@ class playerTest extends FunSuite {
     )
     deck = new Deck(listOfCards)
     hand = new Hand(listOfCards)
-    player1 = new Player(name, gems, deck, hand)
-    player2 = new Player(name, gems, deck, hand)
+    player1 = new Cpu(name, gems, deck, hand)
+    player2 = new Cpu(name, gems, deck, hand)
     testBoard = new Board()
   }
 
@@ -51,7 +51,7 @@ class playerTest extends FunSuite {
     assertEquals(player1.gethand().getlistOfCards().length, 4 )
     assertEquals(player1.getdeck().getlistOfCards().length, 2 )
   }
-  
+
   test("Testing an equals method for player class") {
     assert(player1.equals(player2))
     assert(player2.equals(player1))

@@ -1,9 +1,9 @@
 package cl.uchile.dcc
 package gwent.cards.weather
 
-import gwent.cards.Card
-
+import cl.uchile.dcc.gwent.*
 import cl.uchile.dcc.gwent.board.Board
+import cl.uchile.dcc.gwent.cards.Card
 
 import java.util.Objects
 
@@ -28,9 +28,32 @@ import java.util.Objects
 class WeatherCard(private val name : String,
                   private val ability : String) extends Card, Equals {
   
-  /** Method not implemented yet. */
-  def play(b: Board): Unit = {
-    
+  /** Play a card (For Humans).
+   *
+   * Play a card on a board given as parameter. Call the method for play of the board.
+   *
+   * @param b The board where you go to play
+   * @example
+   * {{{
+   * WeatherCard.playHuman(new Board())
+   * }}}
+   */
+  def playHuman(b: Board): Unit = {
+    b.playWeather(this)
+  }
+
+  /** Play a card (For Cpu).
+   *
+   * Play a card on a board given as parameter. Call the method for play of the board.
+   *
+   * @param b The board where you go to play
+   * @example
+   * {{{
+   * WeatherCard.playCpu(new Board())
+   * }}}
+   */
+  def playCpu(b: Board): Unit = {
+    b.playWeather(this)
   }
 
   /** Getter of the param name. */

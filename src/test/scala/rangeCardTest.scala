@@ -1,3 +1,4 @@
+import cl.uchile.dcc.gwent.board.Board
 import cl.uchile.dcc.gwent.cards
 import cl.uchile.dcc.gwent.cards.unit.AbstractUnitCard
 import cl.uchile.dcc.gwent.cards.unit.subclass.RangeCard
@@ -10,6 +11,7 @@ class rangeCardTest extends FunSuite {
   val ability: String = "Ab"
   var carta1 : RangeCard = _
   var carta2 : RangeCard = _
+  var testBoard = new Board()
 
 
 
@@ -17,6 +19,7 @@ class rangeCardTest extends FunSuite {
     strength = 5
     carta1 = new RangeCard(name, strength, ability)
     carta2 = new RangeCard(name, strength, ability)
+    testBoard = new Board()
   }
   test("A siege card can be created with a name, strength and ability") {
     assertNotEquals(carta1.getname(), "") // name cant be void string
@@ -31,5 +34,10 @@ class rangeCardTest extends FunSuite {
     assert(carta2.equals(carta1))
     assert(!carta1.equals("Test"))
     assert(carta1.hashCode == carta2.hashCode)
+  }
+  
+  test("A method play can be called") {
+    carta1.playHuman(testBoard)
+    carta1.playCpu(testBoard)
   }
 }

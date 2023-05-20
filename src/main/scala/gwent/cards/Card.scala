@@ -2,8 +2,7 @@ package cl.uchile.dcc
 package gwent.cards
 
 import gwent.board.Board
-
 trait Card {
-  /** Method not implemented yet */
-  def play(b: Board): Unit
+  def playHuman(b: Board): Unit
+  def playCpu(b: Board): Unit
 }

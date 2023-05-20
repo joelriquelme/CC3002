@@ -1,3 +1,4 @@
+import cl.uchile.dcc.gwent.board.Board
 import cl.uchile.dcc.gwent.cards
 import cl.uchile.dcc.gwent.cards.weather.WeatherCard
 import cl.uchile.dcc.gwent.cards.unit.AbstractUnitCard
@@ -10,6 +11,7 @@ class weatherCardTest extends FunSuite {
   var carta1 : WeatherCard = _
   var carta2 : WeatherCard = _
   var carta3 : WeatherCard = _
+  var testBoard = new Board()
 
 
 
@@ -17,6 +19,7 @@ class weatherCardTest extends FunSuite {
     carta1 = new WeatherCard(name, ability)
     carta2 = new WeatherCard(name, ability)
     carta3 = new WeatherCard(name1, ability)
+    testBoard = new Board()
   }
   test("A unit card can be created with a name, strength and ability") {
     assertNotEquals(carta1.getname(), "") // name cant be void string
@@ -30,7 +33,9 @@ class weatherCardTest extends FunSuite {
     assert(!carta1.equals("Test"))
     assert(carta1.hashCode == carta2.hashCode)
   }
-  test("A method play can be called"){
-    carta1.play()
+  
+  test("A method play can be called") {
+    carta1.playHuman(testBoard)
+    carta1.playCpu(testBoard)
   }
 }

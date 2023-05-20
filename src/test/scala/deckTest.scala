@@ -2,6 +2,7 @@ import cl.uchile.dcc.gwent.cards.Card
 import cl.uchile.dcc.gwent.cards.unit.AbstractUnitCard
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
+import cl.uchile.dcc.gwent.deck.Deck
 import munit.FunSuite
 
 import scala.collection.mutable.ListBuffer
