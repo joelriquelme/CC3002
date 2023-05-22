@@ -70,6 +70,7 @@ class boardTest extends FunSuite {
     player1.playCard(W, testBoard)
     player2.playCard(W2, testBoard)
     assert(testBoard.getweatherZone().contains(W2))
+    assert(!testBoard.getweatherZone().contains(W))
   }
 
   test("Testing an equals method for board class") {
