@@ -36,6 +36,8 @@ class Player (private val name : String,
               private var gems : Int,
               private val deck : Deck,
               private val hand : Hand) extends Equals {
+  //gems cant be negative
+  gems = math.max(gems,0)
 
   /** Play a card.
    *
@@ -77,9 +79,10 @@ class Player (private val name : String,
   }
 
   /** Getter of the param name */
-  def getname() : String ={
+  def getname() : String = {
     name
   }
+
   /** Getter of the param gems */
   def getgems(): Int = {
     gems

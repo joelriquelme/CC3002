@@ -16,14 +16,6 @@ import scala.collection.mutable.ListBuffer
  * three zones for the cpu and three zones for the human.
  * And the last one zone are shared by Human and Cpu, the zone for the weather cards.
  *
- * @param weatherZone The list of the weather card.
- * @param meleePlayerZone The list of the melee cards of the human.
- * @param rangePlayerZone The list of the range cards of the human.
- * @param siegePlayerZone The list of the siege cards of the human.
- * @param meleeCpuZone The list of the melee cards of the cpu.
- * @param rangeCpuZone The list of the range cards of the cpu.
- * @param siegeCpuZone The list of the siege cards of the cpu.
- *
  * @constructor Creates a new board with all empty list.
  * @example
  * board = new Board()
@@ -33,12 +25,19 @@ import scala.collection.mutable.ListBuffer
  * @version 1.0.0
  */
 class Board extends Equals {
+  /** The list of the weather card. */
   private var weatherZone = ListBuffer[Card]()
+  /** The list of the melee cards of the human. */
   private val meleePlayerZone = ListBuffer[Card]()
+  /** The list of the range cards of the human. */
   private val rangePlayerZone = ListBuffer[Card]()
+  /** The list of the siege cards of the human. */
   private val siegePlayerZone = ListBuffer[Card]()
+  /** The list of the melee cards of the cpu. */
   private val meleeCpuZone = ListBuffer[Card]()
+  /** The list of the range cards of the cpu. */
   private val rangeCpuZone = ListBuffer[Card]()
+  /** The list of the siege cards of the cpu. */
   private val siegeCpuZone = ListBuffer[Card]()
 
   /** Play a melee card in the corresponding zone of the human player's half.
