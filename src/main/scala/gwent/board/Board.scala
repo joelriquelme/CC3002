@@ -26,7 +26,7 @@ import scala.collection.mutable.ListBuffer
  */
 class Board extends Equals {
   /** The list of the weather card. */
-  private var weatherZone = ListBuffer[Card]()
+  private val weatherZone = ListBuffer[Card]()
   /** The list of the melee cards of the human. */
   private val meleePlayerZone = ListBuffer[Card]()
   /** The list of the range cards of the human. */
@@ -149,7 +149,7 @@ class Board extends Equals {
    * }}}
    */
   def playWeather(c: WeatherCard): Unit = {
-    weatherZone = ListBuffer[Card]()
+    weatherZone.clear()
     weatherZone += c
   }
 

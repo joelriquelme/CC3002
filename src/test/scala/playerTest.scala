@@ -6,12 +6,12 @@ import cl.uchile.dcc.gwent.cards.unit.AbstractUnitCard
 import cl.uchile.dcc.gwent.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
 import cl.uchile.dcc.gwent.deck.Deck
 import cl.uchile.dcc.gwent.hand.Hand
-import cl.uchile.dcc.gwent.players.Player
+import cl.uchile.dcc.gwent.players.{IPlayer, Player}
 import munit.FunSuite
 
 import scala.collection.mutable.ListBuffer
 
-class playerTest extends FunSuite {
+class playerTest extends FunSuite{
   val name = "TestName"
   var gems = 2
   var deck : Deck = _
@@ -39,6 +39,10 @@ class playerTest extends FunSuite {
     assertEquals(player1.getgems(), gems)
     assert(player1.getgems() <= 2 )
     assert(player1.getgems() >= 0 )
+    player1.setgems(0)
+    assert(player1.getgems() == 0)
+    player2.setgems(-2)
+    assert(player2.getgems() == 0)
     assertEquals(player1.getdeck(), deck)
     assertEquals(player1.gethand(), hand)
   }

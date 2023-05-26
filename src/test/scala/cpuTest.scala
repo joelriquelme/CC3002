@@ -39,6 +39,10 @@ class cpuTest extends FunSuite {
     assertEquals(player1.getgems(), gems)
     assert(player1.getgems() <= 2 )
     assert(player1.getgems() >= 0 )
+    player1.setgems(0)
+    assert(player1.getgems() == 0)
+    player2.setgems(-2)
+    assert(player2.getgems() == 0)
     assertEquals(player1.getdeck(), deck)
     assertEquals(player1.gethand(), hand)
   }

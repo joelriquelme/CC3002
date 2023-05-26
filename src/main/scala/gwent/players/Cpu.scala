@@ -84,6 +84,12 @@ class Cpu(private val name : String,
   def getgems(): Int = {
     gems
   }
+
+  /** Setter of the param gems */
+  def setgems(g: Int): Unit = {
+    gems = math.max(0, g)
+  }
+  
   /** Getter of the param deck */
   def getdeck(): Deck = {
     deck

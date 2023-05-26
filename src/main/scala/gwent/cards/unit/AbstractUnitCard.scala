@@ -38,13 +38,19 @@ abstract class AbstractUnitCard(private val name : String,
   def getname(): String = {
     name
   }
+
   /** Getter of the param strength. */
   def getstrength(): Int = {
     strength
   }
+
+  /** Setter of the param strength */
+  def setstrength(s: Int): Unit = {
+    strength = math.max(s,0)
+  }
+
   /** Getter of the param ability. */
   def getability(): String = {
     ability
   }
 }
-

@@ -28,6 +28,10 @@ class unitCardTest extends FunSuite {
     assert(carta1.getstrength() >= 1) // strength should be greater than or equal to 1
     assertEquals(carta1.getstrength(), strength)
     assertEquals(carta1.getability(), ability)
+    carta1.setstrength(3)
+    assert(carta1.getstrength() == 3)
+    carta1.setstrength(-3)
+    assert(carta1.getstrength() == 0)
   }
   test("Testing an equals method for UnitCard class") {
     assert(carta1.equals(carta2))
