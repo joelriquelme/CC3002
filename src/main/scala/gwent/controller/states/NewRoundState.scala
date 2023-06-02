@@ -12,4 +12,12 @@ class NewRoundState(context: GameController) extends GameState(context){
   override def toHumanTurnState(): Unit = {
     context.state = new HumanTurnState(context)
   }
+
+  override def shuffleAndDraw(): Unit = {
+    context.state = new HumanTurnState(context)
+  }
+
+  override def endGame(): Unit = {
+    context.state = new GameOverState(context)
+  }
 }
