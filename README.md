@@ -1,4 +1,4 @@
-**Tarea 1 de Joel Riquelme 20.499.444-7**
+# Tarea 1 de Joel Riquelme 20.499.444-7
 
 Sobre *Cartas*:
 
@@ -21,7 +21,7 @@ Clase Hand: esta clase representa la mano del jugador. La idea de crear una clas
 
 Clase Deck: el proposito de esta clase es básicamente la misma que Hand pero orientada al mazo del jugador. Por ejemplo al momento de hacer player.takeCard() se llama a un método de hand que a su vez llama a un método de deck. Delegando así lo más posible la responsabilidad de clases.
 
-**Tarea 2 de Joel Riquelme 20.499.444-7**
+# Tarea 2 de Joel Riquelme 20.499.444-7
 
 ->Actualización de Clases:
 
@@ -66,6 +66,14 @@ Para jugar una carta, tanto el humano como la cpu lo hacen de la misma forma de 
     Cada uno de estos situa a la carta en su sección del tablero correspondiente.
 
 Aplicando así el patrón de diseño dobledispach.
+
+# Entrega Parcial 4
+
+## Diagrama de Estados
+
+![Diagrama de Estados](../gwen-t-joelriquelme/Diagrama%20de%20Estados.png)
+
+
 
 
 
