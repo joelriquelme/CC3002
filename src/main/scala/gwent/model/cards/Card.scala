@@ -1,7 +1,7 @@
 package cl.uchile.dcc
-package gwent.cards
+package gwent.model.cards
 
-import gwent.board.Board
+import cl.uchile.dcc.gwent.model.board.Board
 trait Card {
   def playHuman(b: Board): Unit
   def playCpu(b: Board): Unit

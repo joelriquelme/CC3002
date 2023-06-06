@@ -1,12 +1,12 @@
 
 import cl.uchile.dcc.gwent
-import cl.uchile.dcc.gwent.board.Board
-import cl.uchile.dcc.gwent.cards.Card
-import cl.uchile.dcc.gwent.cards.unit.AbstractUnitCard
-import cl.uchile.dcc.gwent.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
-import cl.uchile.dcc.gwent.deck.Deck
-import cl.uchile.dcc.gwent.hand.Hand
-import cl.uchile.dcc.gwent.players.{IPlayer, Player}
+import cl.uchile.dcc.gwent.model.board.Board
+import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
+import cl.uchile.dcc.gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
+import cl.uchile.dcc.gwent.model.deck.Deck
+import cl.uchile.dcc.gwent.model.hand.Hand
+import cl.uchile.dcc.gwent.model.players.{IPlayer, Player}
 import munit.FunSuite
 
 import scala.collection.mutable.ListBuffer

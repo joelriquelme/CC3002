@@ -1,8 +1,7 @@
 package cl.uchile.dcc
-package gwent.deck
+package gwent.model.deck
 
-import cl.uchile.dcc.gwent.cards.Card
-
+import cl.uchile.dcc.gwent.model.cards.Card
 import java.util.Objects
 import scala.collection.mutable.ListBuffer
 import scala.util.Random

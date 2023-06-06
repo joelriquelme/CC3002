@@ -5,7 +5,10 @@ import gwent.controller.GameController
 import gwent.controller.states._
 
 class PreGameState(context: GameController) extends GameState(context){
-  override def toPreGameState(): Unit = {
-    context.state = new PreGameState(context)
+
+  override def isPreGameState(): Boolean = true
+
+  override def startGame(): Unit = {
+    context.state = new HumanTurnState(context)
   }
 }

@@ -1,11 +1,11 @@
 package cl.uchile.dcc
-package gwent.players
+package gwent.model.players
 
 import cl.uchile.dcc.gwent.*
-import cl.uchile.dcc.gwent.board.Board
-import cl.uchile.dcc.gwent.cards.Card
-import cl.uchile.dcc.gwent.deck.Deck
-import cl.uchile.dcc.gwent.hand.Hand
+import cl.uchile.dcc.gwent.model.board.Board
+import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.deck.Deck
+import cl.uchile.dcc.gwent.model.hand.Hand
 
 import java.util.Objects
 

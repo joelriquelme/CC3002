@@ -1,9 +1,8 @@
 package cl.uchile.dcc
-package gwent.cards.unit.subclass
+package gwent.model.cards.unit.subclass
 
-import gwent.cards.unit.AbstractUnitCard
-
-import cl.uchile.dcc.gwent.board.Board
+import cl.uchile.dcc.gwent.model.board.Board
+import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
 
 import java.util.Objects
 

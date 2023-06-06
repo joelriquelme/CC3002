@@ -1,7 +1,7 @@
-import cl.uchile.dcc.gwent.board.Board
-import cl.uchile.dcc.gwent.cards
-import cl.uchile.dcc.gwent.cards.unit.AbstractUnitCard
-import cl.uchile.dcc.gwent.cards.unit.subclass.SiegeCard
+import cl.uchile.dcc.gwent.model.cards
+import cl.uchile.dcc.gwent.model.board.Board
+import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
+import cl.uchile.dcc.gwent.model.cards.unit.subclass.SiegeCard
 import munit.FunSuite
 
 class siegeCardTest extends FunSuite {

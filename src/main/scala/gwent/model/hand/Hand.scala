@@ -1,10 +1,10 @@
 package cl.uchile.dcc
-package gwent.hand
+package gwent.model.hand
 
 import cl.uchile.*
-import cl.uchile.dcc.gwent.board.Board
-import cl.uchile.dcc.gwent.cards.Card
-import cl.uchile.dcc.gwent.deck.Deck
+import cl.uchile.dcc.gwent.model.board.Board
+import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.deck.Deck
 
 import java.util.Objects
 import scala.concurrent.Batchable

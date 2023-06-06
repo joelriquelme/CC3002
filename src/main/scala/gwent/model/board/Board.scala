@@ -1,10 +1,12 @@
 package cl.uchile.dcc
-package gwent.board
+package gwent.model.board
 
-import gwent.cards.*
+import gwent.model.cards.*
 
-import cl.uchile.dcc.gwent.cards.unit.subclass.*
-import cl.uchile.dcc.gwent.cards.weather.WeatherCard
+import cl.uchile.dcc.gwent.model.cards.unit.subclass.*
+import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
+import cl.uchile.dcc.gwent.model.cards.weather.WeatherCard
 
 import java.util.Objects
 import scala.collection.mutable.ListBuffer

@@ -1,9 +1,9 @@
 package cl.uchile.dcc
-package gwent.cards.weather
+package gwent.model.cards.weather
 
 import cl.uchile.dcc.gwent.*
-import cl.uchile.dcc.gwent.board.Board
-import cl.uchile.dcc.gwent.cards.Card
+import cl.uchile.dcc.gwent.model.board.Board
+import cl.uchile.dcc.gwent.model.cards.Card
 
 import java.util.Objects
 
