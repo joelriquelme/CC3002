@@ -2,6 +2,7 @@
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.cards.abilities.NullAbility
 import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
 import cl.uchile.dcc.gwent.model.deck.Deck
@@ -23,9 +24,9 @@ class playerTest extends FunSuite{
 
   override def beforeEach(context: BeforeEach): Unit = {
     listOfCards = ListBuffer[Card](
-      new MeleeCard("A", 1, "Ab"),
-      new RangeCard("B", 1, "Ab"),
-      new SiegeCard("C", 1, "Ab"),
+      new MeleeCard("A", 1, new NullAbility),
+      new RangeCard("B", 1, new NullAbility),
+      new SiegeCard("C", 1, new NullAbility),
     )
     deck = new Deck(listOfCards)
     hand = new Hand(listOfCards)
@@ -47,7 +48,7 @@ class playerTest extends FunSuite{
     assertEquals(player1.gethand(), hand)
   }
   test("If you play a card, the length of your hand decrease by 1"){
-    player1.playCard(new MeleeCard("A", 1, "Ab"), testBoard)
+    player1.playCard(new MeleeCard("A", 1, new NullAbility), testBoard)
     assertEquals(player1.gethand().getlistOfCards().length, 2 )
   }
   test("If you take a card, the length of your deck decrease by 1 and you hand increase by 2"){

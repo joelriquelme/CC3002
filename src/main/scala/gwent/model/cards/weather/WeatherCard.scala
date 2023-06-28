@@ -4,6 +4,7 @@ package gwent.model.cards.weather
 import cl.uchile.dcc.gwent.*
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.cards.abilities.{Ability}
 
 import java.util.Objects
 
@@ -26,7 +27,7 @@ import java.util.Objects
  * @version 1.0.0
  */
 class WeatherCard(private val name : String,
-                  private val ability : String) extends Card, Equals {
+                  private val ability : Ability) extends Card, Equals {
   
   /** Play a card (For Humans).
    *
@@ -62,7 +63,7 @@ class WeatherCard(private val name : String,
   }
 
   /** Getter of the param ability. */
-  def getability(): String = {
+  def getability(): Ability = {
     ability
   }
 

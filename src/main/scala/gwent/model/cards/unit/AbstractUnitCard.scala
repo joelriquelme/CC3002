@@ -4,6 +4,7 @@ package gwent.model.cards.unit
 
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.cards.abilities.Ability
 
 import java.util.Objects
 
@@ -29,7 +30,7 @@ import java.util.Objects
  */
 abstract class AbstractUnitCard(private val name : String,
                                 private var strength : Int,
-                                private val ability : String) extends Card, Equals {
+                                private val ability : Ability) extends IUnitCard, Equals {
   def playHuman(b: Board): Unit
 
   def playCpu(b: Board): Unit
@@ -50,7 +51,7 @@ abstract class AbstractUnitCard(private val name : String,
   }
 
   /** Getter of the param ability. */
-  def getability(): String = {
+  def getability(): Ability = {
     ability
   }
 }

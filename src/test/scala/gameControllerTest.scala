@@ -3,6 +3,7 @@ package cl.uchile.dcc
 import cl.uchile.dcc.gwent.controller.GameController
 import cl.uchile.dcc.gwent.controller.states.InvalidActionException
 import cl.uchile.dcc.gwent.model.board.Board
+import cl.uchile.dcc.gwent.model.cards.abilities.NullAbility
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.MeleeCard
 import munit.FunSuite
 import org.junit.Assert
@@ -12,12 +13,12 @@ class gameControllerTest extends FunSuite {
 
   var testGame: GameController = new GameController()
   var testBoard: Board = new Board()
-  var testCard: MeleeCard = new MeleeCard("test", 1,"a")
+  var testCard: MeleeCard = new MeleeCard("test", 1,new NullAbility)
 
   override def beforeEach(context: BeforeEach): Unit = {
     testGame = new GameController()
     testBoard = new Board()
-    testCard = new MeleeCard("test", 1,"a")
+    testCard = new MeleeCard("test", 1,new NullAbility)
   }
 
   test("A GameController is initiated in PreGameState") {

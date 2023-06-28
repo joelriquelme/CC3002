@@ -2,6 +2,7 @@ package cl.uchile.dcc
 package gwent.model.cards.unit.subclass
 
 import cl.uchile.dcc.gwent.model.board.Board
+import cl.uchile.dcc.gwent.model.cards.abilities.Ability
 import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
 
 import java.util.Objects
@@ -28,7 +29,7 @@ import java.util.Objects
  */
 class MeleeCard(private val name : String,
                 private var strength : Int,
-                private val ability : String) extends AbstractUnitCard (name, strength, ability), Equals {
+                private val ability : Ability) extends AbstractUnitCard (name, strength, ability), Equals {
 
   /** Play a card (For Humans).
    *
@@ -69,5 +70,5 @@ class MeleeCard(private val name : String,
     }
   }
 
-  override def hashCode: Int = Objects.hash(classOf[SiegeCard], name, strength, ability)
+  override def hashCode: Int = Objects.hash(classOf[MeleeCard], name, strength, ability)
 }

@@ -1,4 +1,5 @@
 import cl.uchile.dcc.gwent.model.cards
+import cl.uchile.dcc.gwent.model.cards.abilities.{Ability, NullAbility}
 import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.MeleeCard
 import munit.FunSuite
@@ -7,7 +8,7 @@ class meleeCardTest extends FunSuite {
   val name = "TestCard"
   val name1 = "TestCard1"
   var strength: Int = _
-  val ability: String = "Ab"
+  val ability: Ability = new NullAbility
   var carta1 : MeleeCard = _
   var carta2 : MeleeCard = _
 

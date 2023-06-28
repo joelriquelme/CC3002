@@ -1,5 +1,6 @@
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.cards.abilities.NullAbility
 import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
 import cl.uchile.dcc.gwent.model.deck.Deck
@@ -16,9 +17,9 @@ class deckTest extends FunSuite{
 
   override def beforeEach(context: BeforeEach): Unit = {
     listOfCards = ListBuffer[Card](
-      new MeleeCard("A",1,"Ab"),
-      new RangeCard("B",1,"Ab"),
-      new SiegeCard("C",1,"Ab"),
+      new MeleeCard("A",1,new NullAbility),
+      new RangeCard("B",1,new NullAbility),
+      new SiegeCard("C",1,new NullAbility),
     )
     testDeck = new Deck(listOfCards)
     testDeck2 = new Deck(listOfCards)

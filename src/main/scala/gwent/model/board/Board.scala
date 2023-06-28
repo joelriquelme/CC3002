@@ -5,6 +5,7 @@ import gwent.model.cards.*
 
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.*
 import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.cards.unit.{AbstractUnitCard, IUnitCard}
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
 import cl.uchile.dcc.gwent.model.cards.weather.WeatherCard
 
@@ -30,17 +31,17 @@ class Board extends Equals {
   /** The list of the weather card. */
   private val weatherZone = ListBuffer[Card]()
   /** The list of the melee cards of the human. */
-  private val meleePlayerZone = ListBuffer[Card]()
+  private val meleePlayerZone = ListBuffer[IUnitCard]()
   /** The list of the range cards of the human. */
-  private val rangePlayerZone = ListBuffer[Card]()
+  private val rangePlayerZone = ListBuffer[IUnitCard]()
   /** The list of the siege cards of the human. */
-  private val siegePlayerZone = ListBuffer[Card]()
+  private val siegePlayerZone = ListBuffer[IUnitCard]()
   /** The list of the melee cards of the cpu. */
-  private val meleeCpuZone = ListBuffer[Card]()
+  private val meleeCpuZone = ListBuffer[IUnitCard]()
   /** The list of the range cards of the cpu. */
-  private val rangeCpuZone = ListBuffer[Card]()
+  private val rangeCpuZone = ListBuffer[IUnitCard]()
   /** The list of the siege cards of the cpu. */
-  private val siegeCpuZone = ListBuffer[Card]()
+  private val siegeCpuZone = ListBuffer[IUnitCard]()
 
   /** Play a melee card in the corresponding zone of the human player's half.
    *
@@ -56,6 +57,8 @@ class Board extends Equals {
    */
   def playMeleeHuman(c: MeleeCard): Unit = {
     meleePlayerZone += c
+    c.getability().apply(c,meleePlayerZone)
+
   }
 
   /** Play a range card in the corresponding zone of the human player's half.
@@ -72,6 +75,7 @@ class Board extends Equals {
    */
   def playRangeHuman(c: RangeCard): Unit = {
     rangePlayerZone += c
+    c.getability().apply(c,rangePlayerZone)
   }
 
   /** Play a siege card in the corresponding zone of the human player's half.
@@ -88,6 +92,7 @@ class Board extends Equals {
    */
   def playSiegeHuman(c: SiegeCard): Unit = {
     siegePlayerZone += c
+    c.getability().apply(c,siegePlayerZone)
   }
 
   /** Play a melee card in the corresponding zone of the cpu player's half.
@@ -104,6 +109,7 @@ class Board extends Equals {
    */
   def playMeleeCpu(c: MeleeCard): Unit = {
     meleeCpuZone += c
+    c.getability().apply(c,meleeCpuZone)
   }
 
   /** Play a range card in the corresponding zone of the cpu player's half.
@@ -120,6 +126,7 @@ class Board extends Equals {
    */
   def playRangeCpu(c: RangeCard): Unit = {
     rangeCpuZone += c
+    c.getability().apply(c,rangeCpuZone)
   }
 
   /** Play a siege card in the corresponding zone of the cpu player's half.
@@ -136,6 +143,7 @@ class Board extends Equals {
    */
   def playSiegeCpu(c: SiegeCard): Unit = {
     siegeCpuZone += c
+    c.getability().apply(c,siegeCpuZone)
   }
 
   /** Play a weather card in the corresponding zone.
@@ -161,32 +169,32 @@ class Board extends Equals {
   }
 
   /** Getter of the param meleePlayerZone */
-  def getmeleePlayerZone(): ListBuffer[Card] = {
+  def getmeleePlayerZone(): ListBuffer[IUnitCard] = {
     meleePlayerZone
   }
 
   /** Getter of the param rangePlayerZone */
-  def getrangePlayerZone(): ListBuffer[Card] = {
+  def getrangePlayerZone(): ListBuffer[IUnitCard] = {
     rangePlayerZone
   }
 
   /** Getter of the param siegePlayerZone */
-  def getsiegePlayerZone(): ListBuffer[Card] = {
+  def getsiegePlayerZone(): ListBuffer[IUnitCard] = {
     siegePlayerZone
   }
 
   /** Getter of the param meleeCpuZone */
-  def getmeleeCpuZone(): ListBuffer[Card] = {
+  def getmeleeCpuZone(): ListBuffer[IUnitCard] = {
     meleeCpuZone
   }
 
   /** Getter of the param rangeCpuZone */
-  def getrangeCpuZone(): ListBuffer[Card] = {
+  def getrangeCpuZone(): ListBuffer[IUnitCard] = {
     rangeCpuZone
   }
 
   /** Getter of the param siegeCpuZone */
-  def getsiegeCpuZone(): ListBuffer[Card] = {
+  def getsiegeCpuZone(): ListBuffer[IUnitCard] = {
     siegeCpuZone
   }
 

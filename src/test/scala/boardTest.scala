@@ -1,6 +1,7 @@
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.cards.abilities.NullAbility
 import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
 import cl.uchile.dcc.gwent.model.cards.weather.WeatherCard
@@ -13,11 +14,11 @@ import scala.collection.mutable.ListBuffer
 
 class boardTest extends FunSuite {
   var testBoard: Board = new Board()
-  val A = new MeleeCard("A", 1, "Ab")
-  val B = new RangeCard("B", 1, "Ab")
-  val C = new SiegeCard("C", 1, "Ab")
-  val W = new WeatherCard("W", "Ab")
-  val W2 = new WeatherCard("W2", "Ab")
+  val A = new MeleeCard("A", 1, new NullAbility)
+  val B = new RangeCard("B", 1, new NullAbility)
+  val C = new SiegeCard("C", 1, new NullAbility)
+  val W = new WeatherCard("W", new NullAbility)
+  val W2 = new WeatherCard("W2", new NullAbility)
   var gems = 2
   var deck: Deck = _
   var hand: Hand = _

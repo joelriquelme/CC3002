@@ -1,6 +1,7 @@
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.cards.abilities.NullAbility
 import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
 import cl.uchile.dcc.gwent.model.deck.Deck
@@ -14,9 +15,9 @@ class handTest extends FunSuite{
   var testHand2: Hand = _
   var listOfCards: ListBuffer[Card] = _
   var testDeck: Deck = _
-  var A = new MeleeCard("A", 1, "Ab")
-  var B = new RangeCard("B", 1, "Ab")
-  var C = new SiegeCard("C", 1, "Ab")
+  var A = new MeleeCard("A", 1, new NullAbility)
+  var B = new RangeCard("B", 1, new NullAbility)
+  var C = new SiegeCard("C", 1, new NullAbility)
   var testBoard: Board = new Board()
   
   override def beforeEach(context: BeforeEach): Unit = {
