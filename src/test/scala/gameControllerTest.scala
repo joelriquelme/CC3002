@@ -5,20 +5,32 @@ import cl.uchile.dcc.gwent.controller.states.InvalidActionException
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.abilities.NullAbility
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.MeleeCard
+import cl.uchile.dcc.gwent.model.deck.Deck
+import cl.uchile.dcc.gwent.model.hand.Hand
+import cl.uchile.dcc.gwent.model.players.{Cpu, Player}
 import munit.FunSuite
 import org.junit.Assert
 import org.junit.runners.model.InvalidTestClassError
+
+import scala.collection.mutable.ListBuffer
 
 class gameControllerTest extends FunSuite {
 
   var testGame: GameController = new GameController()
   var testBoard: Board = new Board()
   var testCard: MeleeCard = new MeleeCard("test", 1,new NullAbility)
+  var testHand: Hand = new Hand(ListBuffer(testCard))
+  var testDeck: Deck = new Deck(ListBuffer(testCard))
+  var testPlayer: Player = new Player("test", 2, testDeck, testHand)
+  var testCpu: Cpu = new Cpu("test", 2, testDeck, testHand)
 
   override def beforeEach(context: BeforeEach): Unit = {
     testGame = new GameController()
     testBoard = new Board()
     testCard = new MeleeCard("test", 1,new NullAbility)
+    testHand = new Hand(ListBuffer(testCard))
+    testDeck = new Deck(ListBuffer(testCard))
+    testPlayer = new Player("test", 2, testDeck, testHand)
   }
 
   test("A GameController is initiated in PreGameState") {
@@ -175,5 +187,15 @@ class gameControllerTest extends FunSuite {
     Assert.assertThrows(classOf[InvalidActionException], () => testGame.shuffleAndDraw())
     testGame.reset()
     assert(testGame.isPreGameState())
+  }
+  test("When a player lose a gem is notified"){
+    testPlayer.registerObserver(testGame)
+    testPlayer.removeOneGem()
+    testPlayer.removeOneGem()
+  }
+  test("When a cpu lose a gem is notified") {
+    testCpu.registerObserver(testGame)
+    testCpu.removeOneGem()
+    testCpu.removeOneGem()
   }
 }

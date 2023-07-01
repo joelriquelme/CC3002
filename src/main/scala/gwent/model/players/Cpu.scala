@@ -2,12 +2,14 @@ package cl.uchile.dcc
 package gwent.model.players
 
 import cl.uchile.dcc.gwent.*
+import cl.uchile.dcc.gwent.controller.Observer
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
 import cl.uchile.dcc.gwent.model.deck.Deck
 import cl.uchile.dcc.gwent.model.hand.Hand
 
 import java.util.Objects
+import scala.collection.mutable.ListBuffer
 
 /** A class represent a cpu.
  *
@@ -32,10 +34,10 @@ import java.util.Objects
  * @since 1.0.0
  * @version 1.0.0
  */
-class Cpu(private val name : String,
+class Cpu (private val name : String,
           private var gems : Int,
           private val deck : Deck,
-          private val hand : Hand) extends Equals {
+          private val hand : Hand) extends AbstractPlayer with Equals {
   //gems cant be negative
   gems = math.max(gems, 0)
 
@@ -78,6 +80,19 @@ class Cpu(private val name : String,
     hand.take(deck)
   }
 
+
+
+  def notifyObserver(response: Any): Unit = {
+    for (o <- observers) {
+      o.updateCpu(this, response)
+    }
+  }
+
+  def removeOneGem(): Unit = {
+    gems -= 1
+    notifyObserver(response = getgems())
+  }
+
   /** Getter of the param name */
   def getname() : String ={
     name
@@ -91,7 +106,7 @@ class Cpu(private val name : String,
   def setgems(g: Int): Unit = {
     gems = math.max(0, g)
   }
-  
+
   /** Getter of the param deck */
   def getdeck(): Deck = {
     deck
@@ -112,6 +127,6 @@ class Cpu(private val name : String,
       false
     }
   }
-  
+
   override def hashCode: Int = Objects.hash(classOf[Cpu], name, gems, deck, hand)
 }

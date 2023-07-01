@@ -57,4 +57,8 @@ class abilitiesTest extends FunSuite {
     assertEquals(testBoard.getmeleePlayerZone().tail.head.getstrength(),10)
     assertEquals(testBoard.getmeleePlayerZone().head.getstrength(),8)
   }
+  test("Method equals works"){
+    val testAb = new NullAbility
+    assert(!testAb.equals(A))
+  }
 }
