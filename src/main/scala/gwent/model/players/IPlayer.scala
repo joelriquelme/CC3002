@@ -6,7 +6,7 @@ import gwent.controller.Observer
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
 
-trait IPlayer {
+trait IPlayer  {
   def playCard(carta: Card, tablero: Board) : Unit
   def takeCard() : Unit
   def registerObserver(o: Observer) : Unit

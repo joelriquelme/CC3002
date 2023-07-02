@@ -11,6 +11,7 @@ class CpuTurnState(context: GameController) extends GameState(context){
   override def isCpuTurnState(): Boolean = true
 
   override def playCard(card: Card, board: Board): Unit = {
+    context.cpuCharacters.foreach(c => c.playCard(card, board))
     context.state = new HumanTurnState(context)
   }
 

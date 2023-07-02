@@ -5,14 +5,19 @@ import gwent.controller.states.*
 
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
-import cl.uchile.dcc.gwent.model.players.IPlayer
+import cl.uchile.dcc.gwent.model.players.{Cpu, IPlayer, Player}
+
+import scala.collection.mutable.ListBuffer
 
 class GameController extends Observer {
+  var playerCharacters = ListBuffer.empty[Player]
+  var cpuCharacters = ListBuffer.empty[Cpu]
   var state: GameState = new PreGameState(this)
+  var board: Board = new Board()
 
   def updatePlayer(o: IPlayer, arg: Any): Unit = {
     if (arg.asInstanceOf[Int] <= 0) {
-      println("Game Over, The cpu wins!")
+      state.endGame()
     }
     else {
       println(s"Player has $arg gems remaining.")
@@ -21,13 +26,21 @@ class GameController extends Observer {
 
   def updateCpu(o: IPlayer, arg: Any): Unit = {
     if (arg.asInstanceOf[Int] <= 0) {
-      println("Game Over, The player wins!")
+      state.endGame()
     }
     else {
       println(s"Enemy has $arg gems remaining.")
     }
   }
 
+  def createGame(player: Player, cpu: Cpu): Unit = {
+    player.registerObserver(this)
+    cpu.registerObserver(this)
+    playerCharacters += player
+    cpuCharacters += cpu
+    board = new Board()
+    state = new PreGameState(this)
+  }
   def startGame(): Unit = {
     state.startGame()
   }

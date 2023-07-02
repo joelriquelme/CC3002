@@ -6,7 +6,7 @@ import cl.uchile.dcc.gwent.controller.states._
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
 
-class GameState(val context: GameController) {
+class GameState protected(val context: GameController) {
   context.state = this
 
   def isCpuLoopState(): Boolean = false
