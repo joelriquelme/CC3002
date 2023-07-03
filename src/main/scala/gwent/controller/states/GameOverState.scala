@@ -11,8 +11,4 @@ class GameOverState(context: GameController) extends GameState(context) {
   override def reset(): Unit = {
     context.state = new PreGameState(context)
   }
-  override def endGame(): Unit = {
-    context.state = new GameOverState(context)
-  }
-    
 }

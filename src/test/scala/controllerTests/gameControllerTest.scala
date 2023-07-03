@@ -1,13 +1,15 @@
 package cl.uchile.dcc
+package controllerTests
 
-import cl.uchile.dcc.gwent.controller.GameController
-import cl.uchile.dcc.gwent.controller.states.InvalidActionException
-import cl.uchile.dcc.gwent.model.board.Board
-import cl.uchile.dcc.gwent.model.cards.abilities.NullAbility
-import cl.uchile.dcc.gwent.model.cards.unit.subclass.MeleeCard
-import cl.uchile.dcc.gwent.model.deck.Deck
-import cl.uchile.dcc.gwent.model.hand.Hand
-import cl.uchile.dcc.gwent.model.players.{Cpu, Player}
+import gwent.controller.GameController
+import gwent.controller.states.{InvalidActionException, NewRoundState}
+import gwent.model.board.Board
+import gwent.model.cards.abilities.NullAbility
+import gwent.model.cards.unit.subclass.MeleeCard
+import gwent.model.deck.Deck
+import gwent.model.hand.Hand
+import gwent.model.players.{Cpu, Player}
+
 import munit.FunSuite
 import org.junit.Assert
 import org.junit.runners.model.InvalidTestClassError
@@ -31,6 +33,12 @@ class gameControllerTest extends FunSuite {
     testHand = new Hand(ListBuffer(testCard))
     testDeck = new Deck(ListBuffer(testCard))
     testPlayer = new Player("test", 2, testDeck, testHand)
+    testCpu = new Cpu("test", 2, testDeck, testHand)
+  }
+
+  test("A Game can be created") {
+    testGame.createGame(testPlayer, testCpu)
+    assert(testGame.isPreGameState())
   }
 
   test("A GameController is initiated in PreGameState") {
@@ -103,7 +111,7 @@ class gameControllerTest extends FunSuite {
     assert(testGame.isHumanLoopState())
   }
 
-  test("A CpuLoopState only can change to CpuLoopState or NewRoundState"){
+  test("A CpuLoopState only can change to CpuLoopState or NewRoundState") {
     testGame.startGame()
     testGame.pass()
     assert(!testGame.isPreGameState())
@@ -183,19 +191,28 @@ class gameControllerTest extends FunSuite {
     Assert.assertThrows(classOf[InvalidActionException], () => testGame.playCard(testCard,testBoard))
     Assert.assertThrows(classOf[InvalidActionException], () => testGame.pass())
     Assert.assertThrows(classOf[InvalidActionException], () => testGame.startGame())
-    Assert.assertThrows(classOf[InvalidActionException], () => testGame.endGame())
     Assert.assertThrows(classOf[InvalidActionException], () => testGame.shuffleAndDraw())
     testGame.reset()
     assert(testGame.isPreGameState())
   }
   test("When a player lose a gem is notified"){
     testPlayer.registerObserver(testGame)
+    testGame.state = new NewRoundState(testGame)
     testPlayer.removeOneGem()
     testPlayer.removeOneGem()
   }
   test("When a cpu lose a gem is notified") {
     testCpu.registerObserver(testGame)
+    testGame.state = new NewRoundState(testGame)
     testCpu.removeOneGem()
     testCpu.removeOneGem()
+  }
+  test("The game can end in a draw."){
+    testPlayer.registerObserver(testGame)
+    testCpu.registerObserver(testGame)
+    testGame.state = new NewRoundState(testGame)
+    testPlayer.removeOneGem()
+    testCpu.removeOneGem()
+    testGame.removeGemsToBoth()
   }
 }

@@ -1,12 +1,14 @@
 package cl.uchile.dcc
+package modelTests.playersTest
 
-import cl.uchile.dcc.gwent.model.board.Board
-import cl.uchile.dcc.gwent.model.cards.Card
-import cl.uchile.dcc.gwent.model.cards.abilities.NullAbility
-import cl.uchile.dcc.gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
-import cl.uchile.dcc.gwent.model.deck.Deck
-import cl.uchile.dcc.gwent.model.hand.Hand
-import cl.uchile.dcc.gwent.model.players.{Cpu, Player}
+import gwent.model.board.Board
+import gwent.model.cards.Card
+import gwent.model.cards.abilities.NullAbility
+import gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
+import gwent.model.deck.Deck
+import gwent.model.hand.Hand
+import gwent.model.players.{Cpu, Player}
+
 import munit.FunSuite
 
 import scala.collection.mutable.ListBuffer

@@ -17,7 +17,7 @@ class GameController extends Observer {
 
   def updatePlayer(o: IPlayer, arg: Any): Unit = {
     if (arg.asInstanceOf[Int] <= 0) {
-      state.endGame()
+      println(s"Player has $arg gems remaining. The enemy has won.")
     }
     else {
       println(s"Player has $arg gems remaining.")
@@ -26,11 +26,30 @@ class GameController extends Observer {
 
   def updateCpu(o: IPlayer, arg: Any): Unit = {
     if (arg.asInstanceOf[Int] <= 0) {
-      state.endGame()
+      println(s"Enemy has $arg gems remaining. The player has won.")
     }
     else {
       println(s"Enemy has $arg gems remaining.")
     }
+  }
+
+  def updateCpuAndPlayer(arg: List[Int]): Unit = {
+    arg match {
+      case List(0, 0) =>
+        println("Both players have 0 gems remaining. It's a draw.")
+      case List(0, _) =>
+        updateCpu(cpuCharacters.head, 0)
+      case List(_, 0) =>
+        updatePlayer(playerCharacters.head, 0)
+    }
+  }
+
+  def removeGemsToBoth(): Unit = {
+    var a = 0
+    var b = 0
+    cpuCharacters.foreach(c => {c.removeGems(1); a = c.getgems()})
+    playerCharacters.foreach(p => {p.removeGems(1); b = p.getgems()})
+    this.updateCpuAndPlayer(List[Int](a, b))
   }
 
   def createGame(player: Player, cpu: Cpu): Unit = {

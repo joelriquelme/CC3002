@@ -1,3 +1,6 @@
+package cl.uchile.dcc
+package modelTests.handTests
+
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card

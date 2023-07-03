@@ -1,15 +1,16 @@
 package cl.uchile.dcc
+package modelTests.cardTests.abilitiesTests
 
 import gwent.model.board.Board
 import gwent.model.cards.Card
 import gwent.model.cards.abilities.{NullAbility, RefuerzoMoral, VinculoEstrecho}
+import gwent.model.cards.unit.IUnitCard
 import gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
 import gwent.model.cards.weather.WeatherCard
 import gwent.model.deck.Deck
 import gwent.model.hand.Hand
 import gwent.model.players.{Cpu, Player}
 
-import cl.uchile.dcc.gwent.model.cards.unit.IUnitCard
 import munit.FunSuite
 
 import scala.collection.mutable.ListBuffer

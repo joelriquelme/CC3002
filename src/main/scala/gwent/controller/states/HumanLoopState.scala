@@ -31,8 +31,7 @@ class HumanLoopState(context: GameController) extends GameState(context){
     } else if (playerPoints < cpuPoints) {
       context.playerCharacters.foreach(c => c.removeOneGem())
     } else {
-      context.cpuCharacters.foreach(c => c.removeOneGem())
-      context.playerCharacters.foreach(c => c.removeOneGem())
+      context.removeGemsToBoth()
     }
 
   }

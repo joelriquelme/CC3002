@@ -1,3 +1,6 @@
+package cl.uchile.dcc
+package modelTests.playersTest
+
 
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.model.board.Board

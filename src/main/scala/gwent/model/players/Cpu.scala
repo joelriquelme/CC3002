@@ -92,7 +92,11 @@ class Cpu (private val name : String,
     gems -= 1
     notifyObserver(response = getgems())
   }
-
+  
+  def removeGems(i: Int): Unit = {
+    gems -= i
+  }
+  
   /** Getter of the param name */
   def getname() : String ={
     name

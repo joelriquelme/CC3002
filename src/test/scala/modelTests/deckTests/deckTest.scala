@@ -1,3 +1,6 @@
+package cl.uchile.dcc
+package modelTests.deckTests
+
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.model.cards.Card
 import cl.uchile.dcc.gwent.model.cards.abilities.NullAbility

@@ -93,6 +93,10 @@ class Player (private val name : String,
     notifyObserver(response = getgems())
   }
 
+  def removeGems(i: Int): Unit = {
+    gems -= i
+  }
+
   /** Getter of the param name */
   def getname() : String = {
     name

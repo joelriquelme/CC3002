@@ -1,8 +1,12 @@
-import cl.uchile.dcc.gwent.model.cards
-import cl.uchile.dcc.gwent.model.board.Board
-import cl.uchile.dcc.gwent.model.cards.abilities.{Ability, NullAbility}
-import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
-import cl.uchile.dcc.gwent.model.cards.unit.subclass.RangeCard
+package cl.uchile.dcc
+package modelTests.cardTests.unitCardsTests
+
+import gwent.model.board.Board
+import gwent.model.cards
+import gwent.model.cards.abilities.{Ability, NullAbility}
+import gwent.model.cards.unit.AbstractUnitCard
+import gwent.model.cards.unit.subclass.RangeCard
+
 import munit.FunSuite
 
 class rangeCardTest extends FunSuite {
