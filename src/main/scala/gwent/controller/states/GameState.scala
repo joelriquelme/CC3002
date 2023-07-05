@@ -2,7 +2,9 @@ package cl.uchile.dcc
 package gwent.controller.states
 
 import gwent.controller.GameController
-import cl.uchile.dcc.gwent.controller.states._
+
+import cl.uchile.dcc.gwent.controller.states.*
+import cl.uchile.dcc.gwent.controller.states.customException.InvalidActionException
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
 

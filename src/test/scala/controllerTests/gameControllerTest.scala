@@ -2,13 +2,14 @@ package cl.uchile.dcc
 package controllerTests
 
 import gwent.controller.GameController
-import gwent.controller.states.{InvalidActionException, NewRoundState}
+import gwent.controller.states.NewRoundState
 import gwent.model.board.Board
 import gwent.model.cards.abilities.NullAbility
 import gwent.model.cards.unit.subclass.MeleeCard
 import gwent.model.deck.Deck
 import gwent.model.hand.Hand
 import gwent.model.players.{Cpu, Player}
+import cl.uchile.dcc.gwent.controller.states.customException.InvalidActionException
 
 import munit.FunSuite
 import org.junit.Assert

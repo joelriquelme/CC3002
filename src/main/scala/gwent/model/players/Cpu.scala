@@ -37,7 +37,7 @@ import scala.collection.mutable.ListBuffer
 class Cpu (private val name : String,
           private var gems : Int,
           private val deck : Deck,
-          private val hand : Hand) extends AbstractPlayer with Equals {
+          private val hand : Hand) extends AbstractPlayer(name, gems, deck, hand) with Equals {
   //gems cant be negative
   gems = math.max(gems, 0)
 
@@ -86,38 +86,6 @@ class Cpu (private val name : String,
     for (o <- observers) {
       o.updateCpu(this, response)
     }
-  }
-
-  def removeOneGem(): Unit = {
-    gems -= 1
-    notifyObserver(response = getgems())
-  }
-  
-  def removeGems(i: Int): Unit = {
-    gems -= i
-  }
-  
-  /** Getter of the param name */
-  def getname() : String ={
-    name
-  }
-  /** Getter of the param gems */
-  def getgems(): Int = {
-    gems
-  }
-
-  /** Setter of the param gems */
-  def setgems(g: Int): Unit = {
-    gems = math.max(0, g)
-  }
-
-  /** Getter of the param deck */
-  def getdeck(): Deck = {
-    deck
-  }
-  /** Getter of the param hand */
-  def gethand(): Hand = {
-    hand
   }
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Cpu]

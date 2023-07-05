@@ -5,6 +5,7 @@ import gwent.model.cards.*
 
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.*
 import cl.uchile.dcc.gwent.model.cards.Card
+import cl.uchile.dcc.gwent.model.cards.abilities.Ability
 import cl.uchile.dcc.gwent.model.cards.unit.{AbstractUnitCard, IUnitCard}
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
 import cl.uchile.dcc.gwent.model.cards.weather.WeatherCard
@@ -161,41 +162,72 @@ class Board extends Equals {
   def playWeather(c: WeatherCard): Unit = {
     weatherZone.clear()
     weatherZone += c
+    c.getability().doEffect(c,this)
+  }
+  
+  def effectToMelee(c: WeatherCard, a: Ability): Unit = {
+    a(c, meleePlayerZone)
+    a(c, meleeCpuZone)
+  }
+  
+  def effectToRange(c: WeatherCard, a: Ability): Unit = {
+    a(c, rangePlayerZone)
+    a(c, rangeCpuZone)
+  }
+  
+  def effectToSiege(c: WeatherCard, a: Ability): Unit = {
+    a(c, siegePlayerZone)
+    a(c, siegeCpuZone)
+  }
+  
+  def effectToAll(c: WeatherCard, a: Ability): Unit = {
+    effectToMelee(c, a)
+    effectToRange(c, a)
+    effectToSiege(c, a)
   }
 
   /** Getter of the param weatherZone */
   def getweatherZone(): ListBuffer[Card] = {
-    weatherZone
+    weatherZone.clone()
   }
 
   /** Getter of the param meleePlayerZone */
   def getmeleePlayerZone(): ListBuffer[IUnitCard] = {
-    meleePlayerZone
+    meleePlayerZone.clone()
   }
 
   /** Getter of the param rangePlayerZone */
   def getrangePlayerZone(): ListBuffer[IUnitCard] = {
-    rangePlayerZone
+    rangePlayerZone.clone()
   }
 
   /** Getter of the param siegePlayerZone */
   def getsiegePlayerZone(): ListBuffer[IUnitCard] = {
-    siegePlayerZone
+    siegePlayerZone.clone()
   }
 
   /** Getter of the param meleeCpuZone */
   def getmeleeCpuZone(): ListBuffer[IUnitCard] = {
-    meleeCpuZone
+    meleeCpuZone.clone()
   }
 
   /** Getter of the param rangeCpuZone */
   def getrangeCpuZone(): ListBuffer[IUnitCard] = {
-    rangeCpuZone
+    rangeCpuZone.clone()
   }
 
   /** Getter of the param siegeCpuZone */
   def getsiegeCpuZone(): ListBuffer[IUnitCard] = {
-    siegeCpuZone
+    siegeCpuZone.clone()
+  }
+  
+  def resetBoard(): Unit = {
+    meleePlayerZone.clear()
+    rangePlayerZone.clear()
+    siegePlayerZone.clear()
+    meleeCpuZone.clear()
+    rangeCpuZone.clear()
+    siegeCpuZone.clear()
   }
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Board]

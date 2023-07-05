@@ -11,9 +11,8 @@ class PreGameState(context: GameController) extends GameState(context){
   override def isPreGameState(): Boolean = true
 
   override def startGame(): Unit = {
-    context.board = new Board()
     for (p <- context.playerCharacters) {
-      p.getdeck().shuffleDeck()
+      p.shuffleDeck()
       var i = 0
       while (i < 10) {
         p.takeCard()
@@ -21,7 +20,7 @@ class PreGameState(context: GameController) extends GameState(context){
       }
     }
     for (c <- context.cpuCharacters) {
-      c.getdeck().shuffleDeck()
+      c.shuffleDeck()
       var i = 0
       while (i < 10) {
         c.takeCard()

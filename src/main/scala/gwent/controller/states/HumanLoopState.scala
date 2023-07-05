@@ -11,7 +11,7 @@ class HumanLoopState(context: GameController) extends GameState(context){
   override def isHumanLoopState(): Boolean = true
 
   override def playCard(card: Card, board: Board): Unit = {
-    context.cpuCharacters.foreach(c => c.playCard(card, board))
+    context.playerCharacters.foreach(c => c.playCard(card, board))
     context.state = new HumanLoopState(context)
   }
 
@@ -25,6 +25,8 @@ class HumanLoopState(context: GameController) extends GameState(context){
     context.board.getmeleeCpuZone().foreach(c => cpuPoints += c.getstrength())
     context.board.getrangeCpuZone().foreach(c => cpuPoints += c.getstrength())
     context.board.getsiegeCpuZone().foreach(c => cpuPoints += c.getstrength())
+
+    println(s"playerPoints: $playerPoints, cpuPoints: $cpuPoints")
 
     if (playerPoints > cpuPoints) {
       context.cpuCharacters.foreach(c => c.removeOneGem())

@@ -61,7 +61,7 @@ class Deck (private var listOfCards : ListBuffer[Card]) extends Equals {
    * }}}
    */
   def shuffleDeck(): Unit = {
-    Random.shuffle(listOfCards)
+    listOfCards = Random.shuffle(listOfCards)
   }
   
   /** Getter of the param listOfCards */

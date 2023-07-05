@@ -64,4 +64,9 @@ class cpuTest extends FunSuite {
     assert(!player1.equals("Test"))
     assert(player1.hashCode == player2.hashCode)
   }
+
+  test("Is possible remove gems to player"){
+    player1.removeGems(1)
+    assertEquals(player1.getgems(), 1)
+  }
 }

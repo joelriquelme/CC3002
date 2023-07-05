@@ -11,7 +11,7 @@ class CpuLoopState(context: GameController) extends GameState(context){
   override def isCpuLoopState(): Boolean = true
   
   override def playCard(card: Card, board: Board): Unit = {
-    context.playerCharacters.foreach(c => c.playCard(card, board))
+    context.cpuCharacters.foreach(c => c.playCard(card, board))
     context.state = new CpuLoopState(context)
   }
 
@@ -25,6 +25,8 @@ class CpuLoopState(context: GameController) extends GameState(context){
     context.board.getmeleeCpuZone().foreach(c => cpuPoints += c.getstrength())
     context.board.getrangeCpuZone().foreach(c => cpuPoints += c.getstrength())
     context.board.getsiegeCpuZone().foreach(c => cpuPoints += c.getstrength())
+
+    println(s"playerPoints: $playerPoints, cpuPoints: $cpuPoints")
 
     if (playerPoints > cpuPoints) {
       context.cpuCharacters.foreach(c => c.removeOneGem())

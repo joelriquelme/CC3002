@@ -3,7 +3,7 @@ package modelTests.cardTests.weatherCardsTests
 
 import gwent.model.board.Board
 import gwent.model.cards
-import gwent.model.cards.abilities.{Ability, NullAbility}
+import gwent.model.cards.abilities.{Ability, EscarchaMordiente, NullAbility}
 import gwent.model.cards.unit.AbstractUnitCard
 import gwent.model.cards.weather.WeatherCard
 
@@ -12,7 +12,7 @@ import munit.FunSuite
 class weatherCardTest extends FunSuite {
   val name = "TestCard"
   val name1 = "CardTest"
-  val ability: Ability = new NullAbility
+  val ability: Ability = new EscarchaMordiente()
   var carta1 : WeatherCard = _
   var carta2 : WeatherCard = _
   var carta3 : WeatherCard = _

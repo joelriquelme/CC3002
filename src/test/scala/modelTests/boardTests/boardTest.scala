@@ -4,7 +4,7 @@ package modelTests.boardTests
 import cl.uchile.dcc.gwent
 import cl.uchile.dcc.gwent.model.board.Board
 import cl.uchile.dcc.gwent.model.cards.Card
-import cl.uchile.dcc.gwent.model.cards.abilities.NullAbility
+import cl.uchile.dcc.gwent.model.cards.abilities.{EscarchaMordiente, NullAbility}
 import cl.uchile.dcc.gwent.model.cards.unit.AbstractUnitCard
 import cl.uchile.dcc.gwent.model.cards.unit.subclass.{MeleeCard, RangeCard, SiegeCard}
 import cl.uchile.dcc.gwent.model.cards.weather.WeatherCard
@@ -20,8 +20,8 @@ class boardTest extends FunSuite {
   val A = new MeleeCard("A", 1, new NullAbility)
   val B = new RangeCard("B", 1, new NullAbility)
   val C = new SiegeCard("C", 1, new NullAbility)
-  val W = new WeatherCard("W", new NullAbility)
-  val W2 = new WeatherCard("W2", new NullAbility)
+  val W = new WeatherCard("W", new EscarchaMordiente)
+  val W2 = new WeatherCard("W2", new EscarchaMordiente)
   var gems = 2
   var deck: Deck = _
   var hand: Hand = _

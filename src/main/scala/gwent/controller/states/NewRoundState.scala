@@ -10,7 +10,7 @@ class NewRoundState(context: GameController) extends GameState(context){
 
   override def shuffleAndDraw(): Unit = {
     for (p <- context.playerCharacters) {
-      p.getdeck().shuffleDeck()
+      p.shuffleDeck()
       var i = 0
       while (i < 3) {
         if (p.gethand().getlistOfCards().length == 10){
@@ -24,7 +24,7 @@ class NewRoundState(context: GameController) extends GameState(context){
     }
 
     for (c <- context.cpuCharacters) {
-      c.getdeck().shuffleDeck()
+      c.shuffleDeck()
       var i = 0
       while (i < 3) {
         if (c.gethand().getlistOfCards().length == 10){
@@ -36,6 +36,7 @@ class NewRoundState(context: GameController) extends GameState(context){
         }
       }
     }
+    context.board.resetBoard()
     context.state = new HumanTurnState(context)
   }
 

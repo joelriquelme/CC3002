@@ -7,4 +7,7 @@ trait IUnitCard extends Card {
   def getstrength(): Int
   def setstrength(s: Int): Unit
   def getname(): String
+  def setweakness(w: Boolean): Unit
+  
+  protected var weakened: Boolean
 }

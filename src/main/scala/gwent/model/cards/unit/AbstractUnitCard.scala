@@ -31,6 +31,9 @@ import java.util.Objects
 abstract class AbstractUnitCard(private val name : String,
                                 private var strength : Int,
                                 private val ability : Ability) extends IUnitCard, Equals {
+  
+  protected var weakened: Boolean = false
+  
   def playHuman(b: Board): Unit
 
   def playCpu(b: Board): Unit
@@ -53,5 +56,10 @@ abstract class AbstractUnitCard(private val name : String,
   /** Getter of the param ability. */
   def getability(): Ability = {
     ability
+  }
+  
+  /** Setter of the param weakened */
+  def setweakness(w: Boolean): Unit = {
+    weakened = w
   }
 }
