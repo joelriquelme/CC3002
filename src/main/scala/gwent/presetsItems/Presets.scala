@@ -63,8 +63,10 @@ var Deck2 = new Deck(listOfCards)
 var Hand1 = new Hand(ListBuffer[Card]())
 var Hand2 = new Hand(ListBuffer[Card]())
 
-var Player = new Player("Player", 2, Deck1, Hand1)
-var Cpu = new Cpu("CPU", 2, Deck2, Hand2)
+var TPlayer = new Player("Player", 2, Deck1, Hand1)
+var TCpu = new Cpu("CPU", 2, Deck2, Hand2)
+var TPlayer2 = new Player("Player2", 2, Deck1, Hand1)
+var TCpu2 = new Cpu("CPU2", 2, Deck2, Hand2)
 
 
 

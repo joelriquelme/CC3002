@@ -4,7 +4,7 @@ package gwent.model.cards.abilities
 import gwent.model.cards.Card
 
 import cl.uchile.dcc.gwent.model.board.Board
-import cl.uchile.dcc.gwent.model.cards.abilities.customException.InvalidAbilityMethod
+import cl.uchile.dcc.gwent.model.cards.abilities.customException.InvalidAbilityMethodException
 import cl.uchile.dcc.gwent.model.cards.unit.{AbstractUnitCard, IUnitCard}
 import cl.uchile.dcc.gwent.model.cards.weather.WeatherCard
 
@@ -21,6 +21,6 @@ class RefuerzoMoral extends Ability {
   }
 
   def doEffect(self: WeatherCard, board: Board): Unit = {
-    throw new InvalidAbilityMethod("Cannot use doEffect in UnitCard Abilities")
+    throw new InvalidAbilityMethodException("Cannot use doEffect in UnitCard Abilities")
   }
 }

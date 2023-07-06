@@ -45,7 +45,11 @@ abstract class AbstractUnitCard(private val name : String,
 
   /** Getter of the param strength. */
   def getstrength(): Int = {
-    strength
+    if (weakened) {
+      1
+    } else {
+      strength
+    }
   }
 
   /** Setter of the param strength */

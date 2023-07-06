@@ -1,5 +1,5 @@
 package cl.uchile.dcc
 package gwent.model.cards.abilities.customException
 
-class InvalidAbilityMethod(message: String) 
+class InvalidAbilityMethodException(message: String) 
   extends Exception(message)

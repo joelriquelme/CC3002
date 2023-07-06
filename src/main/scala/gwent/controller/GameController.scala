@@ -17,7 +17,6 @@ class GameController extends Observer {
 
   def getplayerCharacters(): ListBuffer[Player] = playerCharacters.clone()
   def getcpuCharacters(): ListBuffer[Cpu] = cpuCharacters.clone()
-  def getboard(): Board = board
 
   def updatePlayer(o: IPlayer, arg: Any): Unit = {
     if (arg.asInstanceOf[Int] <= 0) {
