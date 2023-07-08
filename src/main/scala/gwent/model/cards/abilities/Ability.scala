@@ -17,7 +17,6 @@ trait Ability extends Equals{
   
   def doEffect(self: WeatherCard, board: Board): Unit
   
-
   override def equals(other: Any): Boolean = other match {
     case that: Ability =>
       (that canEqual this) &&

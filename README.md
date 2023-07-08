@@ -65,13 +65,51 @@ Para jugar una carta, tanto el humano como la cpu lo hacen de la misma forma de 
     Aquí existen 7 metodos distintos de play en la clase tablero, uno para cada caso, dependiendo de la combinación de tipo de carta y si lo juega un humano o una cpu.
     Cada uno de estos situa a la carta en su sección del tablero correspondiente.
 
-Aplicando así el patrón de diseño dobledispach.
+Aplicando así el patrón de diseño doubleispach.
 
-# Entrega Parcial 4
 
-## Diagrama de Estados
+# Tarea 3 de Joel Riquelme 20.499.444-7
+
+## Entrega Parcial 4 (States y Controller)
+
+### Diagrama de Estados
 
 ![Diagrama de Estados](../gwen-t-joelriquelme/Diagrama%20de%20Estados.png)
+
+En primer lugar se creó una Class grande llamada GameState de la cual todos los demas States heredan. Esta clase contiene todos los metodos para cambiar de estados de manera que todos lanzan una Exception Custom por defecto, además tiene los metodos que preguntan que estado es el actual, tambien por defecto todos entregan un False.
+
+Cada subclase de GameState corresponde a un State concreto del juego, en cada una se hace override de los metodos que corresponden a cada estado, por ejemplo en el estado Pre-Game se sobre escribio el metodo StartGame() para revolver los mazos y robar 10 cartas para cada jugador y el metodo isPreGameState() para entregar True.
+
+## Entrega Parcial 5 (Abilities)
+
+### Habilidades:
+
+Se ultilizo el patron de diseño composite para las habilidades. En primer lugar se creo una interfaz llamada Ability que contiene el metodo apply() que recibe la carta(self) y la zona donde se aplica el efecto, dicho metodo es el que se encarga de aplicar la habilidad.
+
+### Habilidades de Cartas de Unidad:
+
+Se crearon 3 habilidades para las cartas de unidad, "RefuerzoMoral", "VinculoEstrecho" y "NullAbility" este ultimo correspondiente al metodo de diseño de NullObject, que como dice su nombre fue creada como representativa de las cartas sin habilidades, ya que todas las cartas tienen habilidades pero pueden tener efecto o no.
+Las primeras 2 habilidades mencionadas anteriormente se crearon como clases que implementan la interfaz Ability, en ellas se sobreescribe el metodo apply() para que realice la accion correspondiente a cada habilidad. 
+
+### Habilidades de Cartas de Clima:
+
+Estas habilidades tambien implementan la interfaz Ability, pero esta vez fueron creadas 4 habilidades:
+"ClimaDespejado","EscarchaMordiente","LluviaTorrencial" y "TormentaImpenetrable", cada una con su metodo apply() correspondiente.
+
+Para aplicar estos efectos se tuvo que implementar otra vez doubleDispatch, esta vez para saber de que tipo es la habilidad que se juega.
+En primera instancia se sabe que se juega una carta de tipo clima, pero se necesita saber de que tipo es la habilidad, para aquello dentro del metodo playWeather de Board, se llama a ability.doEffect(card,this). Dentro de este ultimo metodo se hace el llamado a board.affectTo<Melee-Range-Siege-All>(card, this) dependiendo de que tipo de habilidad es. Luego una vez teniendo la informacion de que tipo de habilidad es y donde se tiene que aplicar dicho efecto, se llama al metodo apply del efecto entregando la zona donde se tiene que aplicar.
+
+Cabe destacar que el metodo doEffect de la clase Ability solo deberia ser llamado por habilidades de cartas de clima, por lo tanto si es llamado por una abillidad de cartas de unidad, se lanza el error "InvalidAbilityMethodException" que es una Exception Custom para este caso.
+## Entrega Parcial 6 (Observer)
+
+Para implementar el descuento de gemas y ver quien gana el juego se utilizo el patron de diseño Observer.
+Con este objetivo se creo la interfaz Observer de la cual GameController hereda. GameController implementa los updaters tanto de Cpu como de Player así como el updater de ambos a la vez.
+
+Con esta logica, el Observer corresponde al controlador. Por otro lado los observables son los jugadores, ya que son ellos los que tienen que avisarle al controlador cuando se les descuenta una gema o cuando se les acaban las gemas.
+Para esto Player y Cpu contienen los metodos registerObserver y notifyObservers, que son los que se encargan de registrar al controlador como observador y avisarle cuando se les descuenta una gema o cuando se les acaban las gemas.
+Este ultimo metodo se llama desde el metodo removeOneGem o desde el metodo removeGemsToBoth segun corresponda.
+
+Los metodos de Update son los responsbles de mostrar en pantalla si se le descuenta una gema a un jugador o si se le acaban las gemas a un jugador, tambien se encargan de mostrar en pantalla quien gana el juego o si hay empate.
 
 
 

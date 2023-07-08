@@ -79,9 +79,26 @@ class Cpu (private val name : String,
   def takeCard() : Unit = {
     hand.take(deck)
   }
-
-
-
+  
+  /** Notify the observers of the cpu.
+   * 
+   * Notify the observers of the cpu with the response, its only used for the controller
+   * when the cpu lose a gem.
+   * 
+   * @param response The number of gems that the cpu has.
+   * 
+   * @example {{{
+   *          notifyObserver(1)  
+   *          }}}
+   * 
+   * @see [[cl.uchile.dcc.gwent.controller.Observer]]
+   * @see [[cl.uchile.dcc.gwent.controller.Controller]]
+   * 
+   * @author Joel Riquelme
+   * @since 1.0
+   * @version 1.0
+   *          
+   */
   def notifyObserver(response: Any): Unit = {
     for (o <- observers) {
       o.updateCpu(this, response)

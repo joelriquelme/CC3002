@@ -164,22 +164,88 @@ class Board extends Equals {
     weatherZone += c
     c.getability().doEffect(c,this)
   }
-  
+
+  /** Apply a weather effect to the melee zone.
+   * 
+   * This method is used by the weather card to apply its effect to the melee zone.
+   * 
+   * @param c The card that you gou to play.
+   * @param a The ability that you want to apply.
+   * 
+   * @example {{{
+   *          var board = new Board()
+   *          var ability = new EscarchaMordiente()
+   *          var card = new WeatherCard("A",ability)
+   *          board.effectToMelee(card,ability)
+   *          }}}
+   * 
+   * @author Joel Riquelme
+   * @since 1.0
+   * @version 1.0
+   */
   def effectToMelee(c: WeatherCard, a: Ability): Unit = {
     a(c, meleePlayerZone)
     a(c, meleeCpuZone)
   }
-  
+
+  /** Apply a weather effect to the range zone.
+   *
+   * This method is used by the weather card to apply its effect to the range zone.
+   *
+   * @param c The card that you gou to play.
+   * @param a The ability that you want to apply.
+   * @example {{{
+   *          var board = new Board()
+   *          var ability = new NieblaImpenetrable()
+   *          var card = new WeatherCard("A",ability)
+   *          board.effectToRange(card,ability)
+   *           }}}
+   * @author Joel Riquelme
+   * @since 1.0
+   * @version 1.0
+   */
   def effectToRange(c: WeatherCard, a: Ability): Unit = {
     a(c, rangePlayerZone)
     a(c, rangeCpuZone)
   }
-  
+
+  /** Apply a weather effect to the siege zone.
+   *
+   * This method is used by the weather card to apply its effect to the siege zone.
+   *
+   * @param c The card that you gou to play.
+   * @param a The ability that you want to apply.
+   * @example {{{
+   *          var board = new Board()
+   *          var ability = new LluviaTorrencial()
+   *          var card = new WeatherCard("A",ability)
+   *          board.effectToSiege(card,ability)
+   *            }}}
+   * @author Joel Riquelme
+   * @since 1.0
+   * @version 1.0
+   */
   def effectToSiege(c: WeatherCard, a: Ability): Unit = {
     a(c, siegePlayerZone)
     a(c, siegeCpuZone)
   }
-  
+
+  /** Apply a weather effect to all zones.
+   *
+   * This method is used by the weather card to apply its effect to the all zones.
+   *
+   * @param c The card that you gou to play.
+   * @param a The ability that you want to apply.
+   * @example {{{
+   *          var board = new Board()
+   *          var ability = new ClimaDespejado()
+   *          var card = new WeatherCard("A",ability)
+   *          board.effectToSiege(card,ability)
+   *             }}}
+   * @author Joel Riquelme
+   * @since 1.0
+   * @version 1.0
+   */
   def effectToAll(c: WeatherCard, a: Ability): Unit = {
     effectToMelee(c, a)
     effectToRange(c, a)
@@ -221,6 +287,20 @@ class Board extends Equals {
     siegeCpuZone.clone()
   }
   
+  /** Reset the board.  
+   * 
+   * This method is used to reset the board.
+   * 
+   * @example {{{
+   *          var board = new Board()
+   *          board.resetBoard()
+   *          }}}
+   * 
+   * @author Joel Riquelme
+   * @since 1.0
+   * @version 1.0
+   *          
+   */
   def resetBoard(): Unit = {
     meleePlayerZone.clear()
     rangePlayerZone.clear()

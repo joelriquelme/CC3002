@@ -32,6 +32,7 @@ abstract class AbstractUnitCard(private val name : String,
                                 private var strength : Int,
                                 private val ability : Ability) extends IUnitCard, Equals {
   
+  /** this value represent the state of card */
   protected var weakened: Boolean = false
   
   def playHuman(b: Board): Unit
