@@ -139,6 +139,9 @@ class GameController extends Observer {
         updateCpu(cpuCharacters.head, 0)
       case List(_, 0) =>
         updatePlayer(playerCharacters.head, 0)
+      case List(_, _) =>
+        updatePlayer(playerCharacters.head, arg(1))
+        updateCpu(cpuCharacters.head, arg(1))
     }
   }
 

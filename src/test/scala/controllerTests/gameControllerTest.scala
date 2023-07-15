@@ -198,20 +198,21 @@ class gameControllerTest extends FunSuite {
   }
   test("When a player lose a gem is notified"){
     testPlayer.registerObserver(testGame)
-    testGame.state = new NewRoundState(testGame)
     testPlayer.removeOneGem()
     testPlayer.removeOneGem()
   }
   test("When a cpu lose a gem is notified") {
-    testCpu.registerObserver(testGame)
-    testGame.state = new NewRoundState(testGame)
+    testGame.createGame(testPlayer, testCpu)
     testCpu.removeOneGem()
     testCpu.removeOneGem()
   }
+  test("When a player lose a gem and the cpu lose a gem is notified") {
+    testGame.createGame(testPlayer, testCpu)
+    testGame.removeGemsToBoth()
+  }
+
   test("The game can end in a draw."){
-    testPlayer.registerObserver(testGame)
-    testCpu.registerObserver(testGame)
-    testGame.state = new NewRoundState(testGame)
+    testGame.createGame(testPlayer, testCpu)
     testPlayer.removeOneGem()
     testCpu.removeOneGem()
     testGame.removeGemsToBoth()
