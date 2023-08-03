@@ -10,5 +10,6 @@ El proyecto se realizó en 3 Tareas principales, cada una con sub entregas llama
 
 # Requerimientos
 
+Para ver todo el enunciado completo y los requerimientos del proyecto ver el siguiente pdf: [Enunciado](Enunciado_Proyecto_V1.0.2.pdf)
 
 
