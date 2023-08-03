@@ -1,6 +1,6 @@
 # Gwen't
 
-Este proyecto consiste en una implementación básica del juego Gwen de The Witcher sin interfaz gráfica, esto bajo el marco del curso CC3002 Metodologías de Diseño y Programación, dictado en el Departamento de Ciencias de la Computación de la Universidad de Chile.
+Este proyecto consiste en una implementación básica del juego [Gwent](https://youtu.be/l6OiqmzZE04) de The Witcher sin interfaz gráfica, esto bajo el marco del curso CC3002 Metodologías de Diseño y Programación, dictado en el Departamento de Ciencias de la Computación de la Universidad de Chile.
 
 La totalidad del código está hecho en Scala y se utilizó el IDE IntelliJ para la creación y gestión del proyecto así como la realización de los test.
 
